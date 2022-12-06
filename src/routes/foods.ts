@@ -1,14 +1,17 @@
 import express from 'express';
 import foodService from '../services/foodService';
+import Food from '../models/food';
 
-const router = express.Router();
+const foodRouter = express.Router();
 
-router.get('/', (_req, res) => {
-  res.send(foodService.getFoods());
+foodRouter.get('/', async (_req, res) => {
+  const foods = await Food.find({});
+  console.log('mongoose responded');
+  res.json(foods);
 });
 
-router.get('/:id', (req, res) => {
+foodRouter.get('/:id', (req, res) => {
   res.send(foodService.getFood(req.params.id));
 });
 
-export default router;
+export default foodRouter;

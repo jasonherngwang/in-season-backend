@@ -1,9 +1,9 @@
 export type Food = {
   id: string;
   name: string;
-  description: string;
   category: Category;
   months: number[];
+  description?: string;
   imageUrl?: string;
 };
 
