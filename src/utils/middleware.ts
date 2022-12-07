@@ -12,7 +12,7 @@ morgan.token('body', (req: any) => {
 });
 
 const requestLogger = morgan(
-  ':method :url :status :res[content-length] - :response-time ms :body'
+  ':method :url :status :res[content-length] - :response-time ms :body',
 );
 
 const tokenExtractor: RequestHandler = (req: any, _res, next) => {
@@ -33,7 +33,7 @@ const userExtractor: RequestHandler = async (req: any, res, next) => {
   if (req.token) {
     const decodedToken = jwt.verify(
       req.token,
-      process.env.SECRET as string
+      process.env.SECRET as string,
     ) as JwtPayload;
 
     if (!decodedToken.id) {
@@ -50,7 +50,6 @@ const unknownEndpoint: RequestHandler = (_req, res) => {
 };
 
 const errorHandler: ErrorRequestHandler = (error, _req, res, next) => {
-  console.log('oh no');
   logger.error(error.message);
 
   if (error.name === 'CastError') {

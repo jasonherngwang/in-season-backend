@@ -1,6 +1,6 @@
 import express from 'express';
 import foodService from '../services/foodService';
-import toNewFoodEntry from '../utils/requestProcessor';
+import { toNewFoodEntry } from '../utils/requestProcessor';
 
 const foodRouter = express.Router();
 
@@ -36,7 +36,7 @@ foodRouter.put('/:id', async (req, res) => {
     const updatedFoodEntry = toNewFoodEntry(req.body);
     const updatedFood = await foodService.updateFood(
       req.params.id,
-      updatedFoodEntry
+      updatedFoodEntry,
     );
 
     res.status(201).json(updatedFood);

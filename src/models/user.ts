@@ -10,10 +10,13 @@ const UserSchema = new Schema<IUser>({
   username: {
     type: String,
     required: true,
-    minLength: 3,
+    minLength: 1,
   },
-  name: String,
-  passwordHash: String,
+  passwordHash: {
+    type: String,
+    required: true,
+    minLength: 1,
+  },
   // foods: [
   //   {
   //     type: Schema.Types.ObjectId,
@@ -28,7 +31,7 @@ UserSchema.set('toJSON', {
     returnedObject.id = returnedObject._id.toString();
     delete returnedObject._id;
     delete returnedObject.__v;
-    delete returnedObject.passwordHash;
+    delete returnedObject.passwordHash; // hash should not be revealed
   },
 });
 /* eslint-enable no-underscore-dangle, no-param-reassign */

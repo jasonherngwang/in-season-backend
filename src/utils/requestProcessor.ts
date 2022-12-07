@@ -1,20 +1,13 @@
-import { NewFoodEntry, Category } from '../types';
+import ValidationError from './errors';
+import { NewFoodEntry, Category, NewUserEntry } from '../types';
 
-// Custom validation error
-class ValidationError extends Error {
-  constructor(message: string) {
-    super(message);
-    this.name = 'ValidationError';
-  }
-}
-
-// Input validation
+// New Food validation
 const isString = (text: unknown): text is string =>
   typeof text === 'string' || text instanceof String;
 
 const parseName = (name: unknown): string => {
   if (!name || !isString(name)) {
-    throw new ValidationError('incorrect or missing name.');
+    throw new ValidationError('incorrect or missing name');
   }
   return name;
 };
@@ -48,7 +41,7 @@ const parseDescription = (description: unknown): string => {
     return '';
   }
   if (!isString(description)) {
-    throw new ValidationError('incorrect description format.');
+    throw new ValidationError('incorrect description format');
   }
   return description;
 };
@@ -58,7 +51,7 @@ const parseImageUrl = (imageUrl: unknown): string => {
     return '';
   }
   if (!isString(imageUrl)) {
-    throw new ValidationError('incorrect image URL format.');
+    throw new ValidationError('incorrect image URL format');
   }
   return imageUrl;
 };
@@ -90,4 +83,38 @@ const toNewFoodEntry = ({
   return newFood;
 };
 
-export default toNewFoodEntry;
+// New User validation
+const parseUsername = (username: unknown): string => {
+  if (!username || !isString(username)) {
+    throw new ValidationError('incorrect or missing username');
+  }
+  if (username.length < 1) {
+    throw new ValidationError('username must be at least 3 characters');
+  }
+  return username;
+};
+
+const parsePassword = (password: unknown): string => {
+  if (!password || !isString(password)) {
+    throw new ValidationError('incorrect or missing password');
+  }
+  if (password.length < 1) {
+    throw new ValidationError('password must be at least 3 characters');
+  }
+  return password;
+};
+
+type NewUserInputFields = {
+  username: unknown;
+  password: unknown;
+};
+
+const toNewUserEntry = ({ username, password }: NewUserInputFields) => {
+  const newUser: NewUserEntry = {
+    username: parseUsername(username),
+    password: parsePassword(password),
+  };
+  return newUser;
+};
+
+export { toNewFoodEntry, toNewUserEntry };

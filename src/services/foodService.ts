@@ -1,14 +1,6 @@
 import { NewFoodEntry } from '../types';
 import { IFood, FoodModel } from '../models/food';
 
-// Custom validation error
-// class IdNotFoundError extends Error {
-//   constructor(message: string) {
-//     super(message);
-//     this.name = 'IdNotFoundError';
-//   }
-// }
-
 // Get all
 const getFoods = async (): Promise<IFood[]> => {
   const foods = await FoodModel.find({});
@@ -38,7 +30,7 @@ const addFood = async (entry: NewFoodEntry): Promise<IFood> => {
 // Update one
 const updateFood = async (
   id: string,
-  entry: NewFoodEntry
+  entry: NewFoodEntry,
 ): Promise<IFood | null | undefined> => {
   const updatedFood = FoodModel.findByIdAndUpdate(
     id,
@@ -49,7 +41,7 @@ const updateFood = async (
       description: entry.description,
       imageUrl: entry.imageUrl,
     },
-    { new: true, runValidators: true, context: 'query' }
+    { new: true, runValidators: true, context: 'query' },
   );
 
   return updatedFood;

@@ -4,6 +4,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import config from './utils/config';
 import foodRouter from './routes/foods';
+import userRouter from './routes/users';
 
 import middleware from './utils/middleware';
 
@@ -24,6 +25,7 @@ mongoose
   });
 
 app.use('/api/foods', foodRouter);
+app.use('/api/users', userRouter);
 
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);
