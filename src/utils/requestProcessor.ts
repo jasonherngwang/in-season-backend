@@ -1,12 +1,20 @@
 import { NewFoodEntry, Category } from '../types';
 
+// Custom validation error
+class ValidationError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'ValidationError';
+  }
+}
+
 // Input validation
 const isString = (text: unknown): text is string =>
   typeof text === 'string' || text instanceof String;
 
 const parseName = (name: unknown): string => {
   if (!name || !isString(name)) {
-    throw new Error('Incorrect or missing name.');
+    throw new ValidationError('incorrect or missing name.');
   }
   return name;
 };
@@ -17,7 +25,7 @@ const isArrayOfMonthNums = (array: number[]): boolean =>
 
 const parseMonths = (months: unknown): number[] => {
   if (!Array.isArray(months) || !isArrayOfMonthNums(months)) {
-    throw new Error(`Incorrect or missing months: ${months}`);
+    throw new ValidationError(`incorrect or missing months: ${months}`);
   }
   return months;
 };
@@ -28,7 +36,7 @@ const isCategory = (param: any): param is Category =>
 
 const parseCategory = (category: unknown): Category => {
   if (!category || !isCategory(category)) {
-    throw new Error(`Incorrect or missing category: ${category}`);
+    throw new ValidationError(`incorrect or missing category: ${category}`);
   }
   return category;
 };
@@ -40,7 +48,7 @@ const parseDescription = (description: unknown): string => {
     return '';
   }
   if (!isString(description)) {
-    throw new Error('Incorrect description format.');
+    throw new ValidationError('incorrect description format.');
   }
   return description;
 };
@@ -50,7 +58,7 @@ const parseImageUrl = (imageUrl: unknown): string => {
     return '';
   }
   if (!isString(imageUrl)) {
-    throw new Error('Incorrect image URL format.');
+    throw new ValidationError('incorrect image URL format.');
   }
   return imageUrl;
 };

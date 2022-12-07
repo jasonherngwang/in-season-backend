@@ -1,7 +1,13 @@
-// import foods from '../../data/foods';
-import mongoose from 'mongoose';
 import { NewFoodEntry } from '../types';
 import { IFood, FoodModel } from '../models/food';
+
+// Custom validation error
+// class IdNotFoundError extends Error {
+//   constructor(message: string) {
+//     super(message);
+//     this.name = 'IdNotFoundError';
+//   }
+// }
 
 // Get all
 const getFoods = async (): Promise<IFood[]> => {
@@ -11,10 +17,6 @@ const getFoods = async (): Promise<IFood[]> => {
 
 // Get one
 const getFood = async (id: string): Promise<IFood | null | undefined> => {
-  // Check if in the ObjectId format expected by Mongoose
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    throw new Error('That food id does not exist.');
-  }
   const food = await FoodModel.findById(id);
   return food;
 };
@@ -38,10 +40,6 @@ const updateFood = async (
   id: string,
   entry: NewFoodEntry
 ): Promise<IFood | null | undefined> => {
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    throw new Error('That food id does not exist.');
-  }
-
   const updatedFood = FoodModel.findByIdAndUpdate(
     id,
     {
@@ -59,9 +57,6 @@ const updateFood = async (
 
 // Delete one
 const deleteFood = async (id: string): Promise<void> => {
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    throw new Error('That food id does not exist.');
-  }
   await FoodModel.findByIdAndDelete(id);
 };
 

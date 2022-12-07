@@ -1,12 +1,16 @@
+import 'express-async-errors';
 import express, { Application } from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import config from './utils/config';
 import foodRouter from './routes/foods';
 
+import middleware from './utils/middleware';
+
 const app: Application = express();
 app.use(cors());
 app.use(express.json());
+app.use(middleware.requestLogger);
 
 console.log('Connecting to', config.MONGODB_URI);
 
@@ -20,5 +24,8 @@ mongoose
   });
 
 app.use('/api/foods', foodRouter);
+
+app.use(middleware.unknownEndpoint);
+app.use(middleware.errorHandler);
 
 export default app;
