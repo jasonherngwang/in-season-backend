@@ -1,15 +1,15 @@
-import mongoose from 'mongoose';
+import { Schema, model } from 'mongoose';
 
-const foodSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true,
-  },
+interface IFood {
+  name: string;
+  category: string;
+  months: number[];
+  description?: string;
+  imageUrl?: string;
+}
+
+const FoodSchema = new Schema<IFood>({
   name: {
-    type: String,
-    required: true,
-  },
-  description: {
     type: String,
     required: true,
   },
@@ -17,14 +17,16 @@ const foodSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  imageUrl: {
-    type: String,
+  months: {
+    type: [Number],
     required: true,
   },
+  description: String,
+  imageUrl: String,
 });
 
 /* eslint-disable no-underscore-dangle, no-param-reassign */
-foodSchema.set('toJSON', {
+FoodSchema.set('toJSON', {
   transform: (_document: any, returnedObject: any) => {
     returnedObject.id = returnedObject._id.toString();
     delete returnedObject._id;
@@ -33,4 +35,6 @@ foodSchema.set('toJSON', {
 });
 /* eslint-enable no-underscore-dangle, no-param-reassign */
 
-export default mongoose.model('Food', foodSchema);
+const FoodModel = model<IFood>('Food', FoodSchema);
+
+export { IFood, FoodModel };
