@@ -1,11 +1,11 @@
-import { Schema, model } from 'mongoose';
-import { IFood } from './food';
+import { Schema, model, Types } from 'mongoose';
 
 interface IUser {
+  _id: Types.ObjectId;
   username: string;
   name: string;
   passwordHash: string;
-  foods: IFood[];
+  foods: Types.ObjectId[];
 }
 
 const UserSchema = new Schema<IUser>({

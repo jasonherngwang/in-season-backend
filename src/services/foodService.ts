@@ -27,6 +27,12 @@ const addFood = async (entry: NewFoodEntry): Promise<IFood> => {
   return addedFood;
 };
 
+const linkFoodToUser = async (food: any, user: any) => {
+  // eslint-disable-next-line no-underscore-dangle, no-param-reassign
+  user.foods = user.foods.concat(food._id);
+  await user.save();
+};
+
 // Update one
 const updateFood = async (
   id: string,
@@ -56,6 +62,7 @@ export default {
   getFoods,
   getFood,
   addFood,
+  linkFoodToUser,
   updateFood,
   deleteFood,
 };

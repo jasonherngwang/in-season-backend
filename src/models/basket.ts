@@ -1,6 +1,7 @@
 import { Schema, model, Types } from 'mongoose';
 
 interface IBasket {
+  _id: Types.ObjectId;
   name: string;
   foods: Types.ObjectId[];
 }

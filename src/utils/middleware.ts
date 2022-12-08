@@ -24,7 +24,7 @@ const tokenExtractor: RequestHandler = (req: any, _res, next) => {
     req.token = authorization.substring(7);
   }
 
-  next();
+  return next();
 };
 
 const userExtractor: RequestHandler = async (req: any, res, next) => {
@@ -45,9 +45,8 @@ const userExtractor: RequestHandler = async (req: any, res, next) => {
   return next();
 };
 
-const unknownEndpoint: RequestHandler = (_req, res) => {
+const unknownEndpoint: RequestHandler = (_req, res) =>
   res.status(404).send({ error: 'unknown endpoint' });
-};
 
 const errorHandler: ErrorRequestHandler = (error, _req, res, next) => {
   logger.error(error.message);
