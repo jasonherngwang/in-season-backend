@@ -8,7 +8,7 @@ const foodRouter = express.Router();
 // Get all
 foodRouter.get('/', async (_req, res) => {
   const foods = await foodService.getFoods();
-  res.json(foods);
+  return res.json(foods);
 });
 
 // Get one
@@ -16,10 +16,9 @@ foodRouter.get('/:id', async (req, res) => {
   const food = await foodService.getFood(req.params.id);
 
   if (food) {
-    res.json(food);
-  } else {
-    res.status(404).end();
+    return res.json(food);
   }
+  return res.status(404).end();
 });
 
 // Create one
@@ -34,7 +33,7 @@ foodRouter.post('/', async (req: any, res) => {
   const newFoodEntry = toNewFoodEntry(body);
   const addedFood = await foodService.addFood(newFoodEntry);
   await foodService.linkFoodToUser(addedFood, user);
-  res.status(201).json(addedFood);
+  return res.status(201).json(addedFood);
 });
 
 // Update one
@@ -70,7 +69,7 @@ foodRouter.put('/:id', async (req: any, res) => {
 // Delete one
 foodRouter.delete('/:id', async (req, res) => {
   await foodService.deleteFood(req.params.id);
-  res.status(204).end();
+  return res.status(204).end();
 });
 
 export default foodRouter;

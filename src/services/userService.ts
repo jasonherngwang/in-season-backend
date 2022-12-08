@@ -1,7 +1,6 @@
 import bcrypt from 'bcrypt';
 import { ValidationError } from '../utils/errors';
 import { NewUserEntry } from '../types';
-// import { IUser, UserModel } from '../models/user';
 import { IUser, UserModel } from '../models/user';
 
 // // Get all

@@ -8,7 +8,7 @@ const userRouter = express.Router();
 // Get all
 userRouter.get('/', async (_req, res) => {
   const users = await userService.getUsers();
-  res.json(users);
+  return res.json(users);
 });
 
 // Get one
@@ -16,23 +16,22 @@ userRouter.get('/:id', async (req, res) => {
   const user = await userService.getUser(req.params.id);
 
   if (user) {
-    res.json(user);
-  } else {
-    res.status(404).end();
+    return res.json(user);
   }
+  return res.status(404).end();
 });
 
 // Create one
 userRouter.post('/', async (req, res) => {
   const newUserEntry = toNewUserEntry(req.body);
   const addedUser = await userService.addUser(newUserEntry);
-  res.status(201).json(addedUser);
+  return res.status(201).json(addedUser);
 });
 
 // Delete one
 userRouter.delete('/:id', async (req, res) => {
   await userService.deleteUser(req.params.id);
-  res.status(204).end();
+  return res.status(204).end();
 });
 
 export default userRouter;

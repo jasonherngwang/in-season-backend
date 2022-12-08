@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import config from './utils/config';
 import foodRouter from './routes/foods';
 import userRouter from './routes/users';
+import basketRouter from './routes/baskets';
 import loginRouter from './routes/login';
 
 import middleware from './utils/middleware';
@@ -29,6 +30,7 @@ mongoose
 
 app.use('/api/foods', foodRouter);
 app.use('/api/users', userRouter);
+app.use('/api/baskets', basketRouter);
 app.use('/api/login', loginRouter);
 
 app.use(middleware.unknownEndpoint);
