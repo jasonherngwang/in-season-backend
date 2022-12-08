@@ -6,4 +6,11 @@ class ValidationError extends Error {
   }
 }
 
-export default ValidationError;
+class AuthenticationError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'AuthenticationError';
+  }
+}
+
+export { ValidationError, AuthenticationError };

@@ -1,4 +1,4 @@
-import ValidationError from './errors';
+import { ValidationError } from './errors';
 import { NewFoodEntry, Category, NewUserEntry } from '../types';
 
 // New Food validation

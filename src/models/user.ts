@@ -1,9 +1,11 @@
 import { Schema, model } from 'mongoose';
+import { IFood } from './food';
 
 interface IUser {
   username: string;
   name: string;
   passwordHash: string;
+  foods: IFood[];
 }
 
 const UserSchema = new Schema<IUser>({
@@ -17,12 +19,12 @@ const UserSchema = new Schema<IUser>({
     required: true,
     minLength: 1,
   },
-  // foods: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: 'Food',
-  //   },
-  // ],
+  foods: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Food',
+    },
+  ],
 });
 
 /* eslint-disable no-underscore-dangle, no-param-reassign */

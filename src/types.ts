@@ -27,3 +27,10 @@ export type NewUserEntry = {
   username: string;
   password: string;
 };
+
+// Basket
+export type Basket = {
+  id: string;
+  name: string;
+  foods: Food[];
+};
