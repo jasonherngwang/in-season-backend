@@ -26,7 +26,7 @@ const FoodSchema = new Schema<IFood>({
   imageUrl: String,
 });
 
-/* eslint-disable no-underscore-dangle, no-param-reassign */
+/* eslint-disable no-param-reassign */
 FoodSchema.set('toJSON', {
   transform: (_document: any, returnedObject: any) => {
     returnedObject.id = returnedObject._id.toString();
@@ -34,7 +34,7 @@ FoodSchema.set('toJSON', {
     delete returnedObject.__v;
   },
 });
-/* eslint-enable no-underscore-dangle, no-param-reassign */
+/* eslint-enable no-param-reassign */
 
 const FoodModel = model<IFood>('Food', FoodSchema);
 

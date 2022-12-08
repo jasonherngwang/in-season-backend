@@ -40,7 +40,6 @@ const setUserAsBasketOwner = async (
   const updatedBasket = await BasketModel.findByIdAndUpdate(
     basketId,
     {
-      // eslint-disable-next-line no-underscore-dangle
       owner: user._id,
     },
     { new: true, runValidators: true, context: 'query' },
@@ -68,13 +67,14 @@ const addFoodToBasket = async (
   basketId: string,
   foodId: string,
 ): Promise<IBasket | null | undefined> => {
-  const food: any = FoodModel.findById(foodId);
+  const food: any = await FoodModel.findById(foodId);
   const basket: any = await BasketModel.findById(basketId);
   const updatedBasket = await BasketModel.findByIdAndUpdate(
     basketId,
     {
-      // eslint-disable-next-line no-underscore-dangle
-      foods: basket.foods.concat(food._id),
+      foods: basket.foods.includes(food._id)
+        ? basket.foods
+        : basket.foods.concat(food._id),
     },
     { new: true, runValidators: true, context: 'query' },
   );
@@ -85,13 +85,14 @@ const deleteFoodFromBasket = async (
   basketId: string,
   foodId: string,
 ): Promise<IBasket | null | undefined> => {
-  const food: any = FoodModel.findById(foodId);
+  const food: any = await FoodModel.findById(foodId);
   const basket: any = await BasketModel.findById(basketId);
   const updatedBasket = await BasketModel.findByIdAndUpdate(
     basketId,
     {
-      // eslint-disable-next-line no-underscore-dangle, no-param-reassign
-      foods: basket.foods.filter((f: any) => f._id !== food._id),
+      foods: basket.foods.filter(
+        (f: mongoose.Types.ObjectId) => f.toString() === food._id,
+      ),
     },
     { new: true, runValidators: true, context: 'query' },
   );
@@ -100,13 +101,14 @@ const deleteFoodFromBasket = async (
 
 // Delete all foods from basket
 const clearBasket = async (basketId: string) => {
-  await BasketModel.findByIdAndUpdate(
+  const updatedBasket = await BasketModel.findByIdAndUpdate(
     basketId,
     {
       foods: [],
     },
     { new: true, runValidators: true, context: 'query' },
   );
+  return updatedBasket;
 };
 
 // Delete basket

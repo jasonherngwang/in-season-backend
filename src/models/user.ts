@@ -26,7 +26,7 @@ const UserSchema = new Schema<IUser>({
   ],
 });
 
-/* eslint-disable no-underscore-dangle, no-param-reassign */
+/* eslint-disable no-param-reassign */
 UserSchema.set('toJSON', {
   transform: (_document: any, returnedObject: any) => {
     returnedObject.id = returnedObject._id.toString();
@@ -35,7 +35,7 @@ UserSchema.set('toJSON', {
     delete returnedObject.passwordHash; // hash should not be revealed
   },
 });
-/* eslint-enable no-underscore-dangle, no-param-reassign */
+/* eslint-enable no-param-reassign */
 
 const UserModel = model<IUser>('User', UserSchema);
 

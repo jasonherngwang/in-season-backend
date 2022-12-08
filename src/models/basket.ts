@@ -24,7 +24,7 @@ const BasketSchema = new Schema<IBasket>({
   ],
 });
 
-/* eslint-disable no-underscore-dangle, no-param-reassign */
+/* eslint-disable no-param-reassign */
 BasketSchema.set('toJSON', {
   transform: (_document: any, returnedObject: any) => {
     returnedObject.id = returnedObject._id.toString();
@@ -32,7 +32,7 @@ BasketSchema.set('toJSON', {
     delete returnedObject.__v;
   },
 });
-/* eslint-enable no-underscore-dangle, no-param-reassign */
+/* eslint-enable no-param-reassign */
 
 const BasketModel = model<IBasket>('Basket', BasketSchema);
 

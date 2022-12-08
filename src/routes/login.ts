@@ -20,7 +20,6 @@ loginRouter.post('/', async (req, res) => {
 
   const userData = {
     username: user.username,
-    // eslint-disable-next-line no-underscore-dangle
     id: user._id,
   };
 

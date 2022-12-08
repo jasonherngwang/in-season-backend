@@ -30,49 +30,69 @@ basketRouter.post('/', async (req: any, res) => {
 
   const addedBasket = await basketService.addBasket();
   const linkedBasket = await basketService.setUserAsBasketOwner(
-    // eslint-disable-next-line no-underscore-dangle
     addedBasket._id.toString(),
-    // eslint-disable-next-line no-underscore-dangle
     user._id,
   );
-  console.log('linked basket:', linkedBasket);
   return res.status(201).json(linkedBasket);
 });
 
-// Update one
-// basketRouter.put('/:id', async (req: any, res) => {
-//   const { body, user } = req;
+// Rename
+basketRouter.patch('/:id', async (req: any, res) => {
+  // const { body, user } = req;
+  const { body } = req;
 
-//   if (!user) {
-//     throw new AuthenticationError('must be logged in to edit basket');
-//   }
+  // testing
+  const user = {
+    _id: '6391785d9409fac240c9ae0a',
+  };
 
-//   const basket = await basketService.getBasket(req.params.id);
-//   if (!basket) {
-//     return res.status(404).end();
-//   }
+  if (!user) {
+    throw new AuthenticationError('must be logged in to edit basket');
+  }
 
-//   // Compare Mongoose ObjectIDs
-//   // eslint-disable-next-line no-underscore-dangle
-//   const isBasketOwner = user.baskets.includes(basket._id);
+  const basket: any = await basketService.getBasket(req.params.id);
+  if (!basket) {
+    return res.status(404).end();
+  }
 
-//   if (basket && isBasketOwner) {
-//     const updatedBasketEntry = toNewBasketEntry(body);
-//     const updatedBasket = await basketService.updateBasket(
-//       req.params.id,
-//       updatedBasketEntry,
-//     );
+  const isBasketOwner = basket.owner.toString() === user._id;
 
-//     return res.status(201).json(updatedBasket);
-//   }
-//   // Basket is not owned by user
-//   throw new AuthenticationError("only the basket's creator can edit it");
-// });
+  if (!(basket && isBasketOwner)) {
+    // Basket is not owned by user
+    throw new AuthenticationError("only the basket's creator can edit it");
+  }
+
+  // Determine the updates that need to be made
+  let updatedBasket = basket;
+  if (body.attributes.newName) {
+    updatedBasket = await basketService.renameBasket(
+      req.params.id,
+      body.attributes.newName,
+    );
+  }
+  if (body.attributes.foodToAdd) {
+    updatedBasket = await basketService.addFoodToBasket(
+      req.params.id,
+      body.attributes.foodToAdd,
+    );
+  }
+  if (body.attributes.foodToDelete) {
+    updatedBasket = await basketService.deleteFoodFromBasket(
+      req.params.id,
+      body.attributes.foodToDelete,
+    );
+  }
+  if (body.attributes.clearBasket) {
+    updatedBasket = await basketService.clearBasket(req.params.id);
+  }
+
+  return res.status(201).json(updatedBasket);
+});
 
 // Delete one
-// basketRouter.delete('/:id', async (req, res) => {
-//   await basketService.deleteBasket(req.params.id);
-//   return res.status(204).end();
-// });
+basketRouter.delete('/:id', async (req, res) => {
+  await basketService.deleteBasket(req.params.id);
+  return res.status(204).end();
+});
 
 export default basketRouter;

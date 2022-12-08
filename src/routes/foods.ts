@@ -50,7 +50,6 @@ foodRouter.put('/:id', async (req: any, res) => {
   }
 
   // Compare Mongoose ObjectIDs
-  // eslint-disable-next-line no-underscore-dangle
   const isFoodOwner = user.foods.includes(food._id);
 
   if (food && isFoodOwner) {
