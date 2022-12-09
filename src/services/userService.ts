@@ -39,7 +39,7 @@ const addUser = async (entry: NewUserEntry): Promise<IUser> => {
   return addedUser;
 };
 
-// Delete one
+// Delete user along with their foods and baskets
 const deleteUser = async (id: string): Promise<void> => {
   await UserModel.findByIdAndDelete(id);
 };
