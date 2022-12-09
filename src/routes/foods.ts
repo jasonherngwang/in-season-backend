@@ -5,13 +5,36 @@ import { toNewFoodEntry } from '../utils/requestProcessor';
 
 const foodRouter = express.Router();
 
-// Get all
+const foodBelongsToUser = async (req: any, res: any): Promise<boolean> => {
+  const { user } = req;
+
+  if (!user) {
+    throw new AuthenticationError('must be logged in to edit/delete food');
+  }
+
+  const food = await foodService.getFood(req.params.id);
+  if (!food) {
+    return res.status(404).end();
+  }
+
+  // Compare Mongoose ObjectIDs
+  const isFoodOwner = user.foods.includes(food._id);
+
+  if (!(food && isFoodOwner)) {
+    // Food is not owned by user
+    throw new AuthenticationError("only the food's creator can edit/delete it");
+  }
+
+  return true;
+};
+
+// Get all (anyone can view all foods)
 foodRouter.get('/', async (_req, res) => {
   const foods = await foodService.getFoods();
   return res.json(foods);
 });
 
-// Get one
+// Get one (anyone can view any food)
 foodRouter.get('/:id', async (req, res) => {
   const food = await foodService.getFood(req.params.id);
 
@@ -21,7 +44,7 @@ foodRouter.get('/:id', async (req, res) => {
   return res.status(404).end();
 });
 
-// Create one
+// Create one (logged-in users only)
 foodRouter.post('/', async (req: any, res) => {
   // Middleware queries user by id from db and inserts into request
   const { body, user } = req;
@@ -36,37 +59,29 @@ foodRouter.post('/', async (req: any, res) => {
   return res.status(201).json(addedFood);
 });
 
-// Update one
+// Update one (logged-in users only, and only foods that belong to them)
 foodRouter.put('/:id', async (req: any, res) => {
-  const { body, user } = req;
-
-  if (!user) {
-    throw new AuthenticationError('must be logged in to edit food');
-  }
-
-  const food = await foodService.getFood(req.params.id);
-  if (!food) {
+  const authorized = await foodBelongsToUser(req, res);
+  if (!authorized) {
     return res.status(404).end();
   }
 
-  // Compare Mongoose ObjectIDs
-  const isFoodOwner = user.foods.includes(food._id);
+  const updatedFoodEntry = toNewFoodEntry(req.body);
+  const updatedFood = await foodService.updateFood(
+    req.params.id,
+    updatedFoodEntry,
+  );
 
-  if (food && isFoodOwner) {
-    const updatedFoodEntry = toNewFoodEntry(body);
-    const updatedFood = await foodService.updateFood(
-      req.params.id,
-      updatedFoodEntry,
-    );
-
-    return res.status(201).json(updatedFood);
-  }
-  // Food is not owned by user
-  throw new AuthenticationError("only the food's creator can edit it");
+  return res.status(201).json(updatedFood);
 });
 
-// Delete one
-foodRouter.delete('/:id', async (req, res) => {
+// Delete one (logged-in users only, and only foods that belong to them)
+foodRouter.delete('/:id', async (req: any, res) => {
+  const authorized = await foodBelongsToUser(req, res);
+  if (!authorized) {
+    return res.status(404).end();
+  }
+
   await foodService.deleteFood(req.params.id);
   return res.status(204).end();
 });

@@ -4,6 +4,30 @@ import { AuthenticationError } from '../utils/errors';
 
 const basketRouter = express.Router();
 
+const basketBelongsToUser = async (req: any, res: any): Promise<boolean> => {
+  const { user } = req;
+
+  if (!user) {
+    throw new AuthenticationError('must be logged in to edit/delete basket');
+  }
+
+  const basket: any = await basketService.getBasket(req.params.id);
+  if (!basket) {
+    return res.status(404).end();
+  }
+
+  const isBasketOwner = basket.owner.toString() === user._id;
+
+  if (!(basket && isBasketOwner)) {
+    // Basket is not owned by user
+    throw new AuthenticationError(
+      "only the basket's creator can edit/delete it",
+    );
+  }
+
+  return true;
+};
+
 // Get all
 basketRouter.get('/', async (_req, res) => {
   const baskets = await basketService.getBaskets();
@@ -38,32 +62,15 @@ basketRouter.post('/', async (req: any, res) => {
 
 // Rename
 basketRouter.patch('/:id', async (req: any, res) => {
-  // const { body, user } = req;
-  const { body } = req;
-
-  // testing
-  const user = {
-    _id: '6391785d9409fac240c9ae0a',
-  };
-
-  if (!user) {
-    throw new AuthenticationError('must be logged in to edit basket');
-  }
-
-  const basket: any = await basketService.getBasket(req.params.id);
-  if (!basket) {
+  const authorized = await basketBelongsToUser(req, res);
+  if (!authorized) {
     return res.status(404).end();
   }
 
-  const isBasketOwner = basket.owner.toString() === user._id;
-
-  if (!(basket && isBasketOwner)) {
-    // Basket is not owned by user
-    throw new AuthenticationError("only the basket's creator can edit it");
-  }
+  const { body } = req;
+  let updatedBasket = await basketService.getBasket(req.params.id);
 
   // Determine the updates that need to be made
-  let updatedBasket = basket;
   if (body.attributes.newName) {
     updatedBasket = await basketService.renameBasket(
       req.params.id,
@@ -91,6 +98,11 @@ basketRouter.patch('/:id', async (req: any, res) => {
 
 // Delete one
 basketRouter.delete('/:id', async (req, res) => {
+  const authorized = await basketBelongsToUser(req, res);
+  if (!authorized) {
+    return res.status(404).end();
+  }
+
   await basketService.deleteBasket(req.params.id);
   return res.status(204).end();
 });

@@ -1,7 +1,7 @@
 import express from 'express';
 import userService from '../services/userService';
 import { toNewUserEntry } from '../utils/requestProcessor';
-// import { IUser, UserModel } from '../models/user';
+import { AuthenticationError } from '../utils/errors';
 
 const userRouter = express.Router();
 
@@ -29,7 +29,14 @@ userRouter.post('/', async (req, res) => {
 });
 
 // Delete one
-userRouter.delete('/:id', async (req, res) => {
+userRouter.delete('/:id', async (req: any, res) => {
+  const { user } = req;
+  const existingUser = await userService.getUser(req.params.id);
+
+  if (!user || !existingUser) {
+    throw new AuthenticationError('must be logged in to delete oneself');
+  }
+
   await userService.deleteUser(req.params.id);
   return res.status(204).end();
 });
