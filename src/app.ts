@@ -4,6 +4,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import config from './utils/config';
 import foodRouter from './routes/foods';
+import imageUploadRouter from './routes/imageUploads';
 import userRouter from './routes/users';
 import basketRouter from './routes/baskets';
 import loginRouter from './routes/login';
@@ -11,7 +12,7 @@ import loginRouter from './routes/login';
 import middleware from './utils/middleware';
 import logger from './utils/logger';
 
-import seedData from '../data/seedMongo';
+// import seedData from '../data/seedMongo';
 
 const app: Application = express();
 app.use(cors());
@@ -32,9 +33,9 @@ mongoose
   });
 
 // Seeding
-seedData();
+// seedData();
 
-app.use('/api/foods', foodRouter);
+app.use('/api/foods', foodRouter, imageUploadRouter);
 app.use('/api/users', userRouter);
 app.use('/api/baskets', basketRouter);
 app.use('/api/login', loginRouter);

@@ -9,7 +9,7 @@ const foodBelongsToUser = async (req: any, res: any): Promise<boolean> => {
   const { user } = req;
 
   if (!user) {
-    throw new AuthenticationError('must be logged in to edit/delete food');
+    throw new AuthenticationError('must be logged in to modify food');
   }
 
   const food = await foodService.getFood(req.params.id);

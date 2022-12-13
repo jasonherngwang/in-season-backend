@@ -1,4 +1,4 @@
-import { RequestHandler, ErrorRequestHandler } from 'express';
+import { Request, RequestHandler, ErrorRequestHandler } from 'express';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import morgan from 'morgan';
 import logger from './logger';
@@ -15,7 +15,7 @@ const requestLogger = morgan(
   ':method :url :status :res[content-length] - :response-time ms :body',
 );
 
-const tokenExtractor: RequestHandler = (req: any, _res, next) => {
+const tokenExtractor: RequestHandler = (req: Request, _res, next) => {
   req.token = null;
 
   const authorization = req.get('authorization');
@@ -27,7 +27,7 @@ const tokenExtractor: RequestHandler = (req: any, _res, next) => {
   return next();
 };
 
-const userExtractor: RequestHandler = async (req: any, res, next) => {
+const userExtractor: RequestHandler = async (req: Request, res, next) => {
   req.user = null;
 
   if (req.token) {
@@ -59,6 +59,9 @@ const errorHandler: ErrorRequestHandler = (error, _req, res, next) => {
   }
   if (error.name === 'AuthenticationError') {
     return res.status(401).json({ error: error.message });
+  }
+  if (error.name === 'UploadError') {
+    return res.status(400).json({ error: error.message });
   }
   if (error.name === 'JsonWebTokenError') {
     return res.status(401).json({ error: 'invalid token' });

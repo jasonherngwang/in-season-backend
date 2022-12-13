@@ -45,5 +45,5 @@ fs.writeFile('./seedData.json', content, 'utf8', (err) => {
     return console.log(err);
   }
 
-  console.log('The file was saved');
+  return console.log('The file was saved');
 });

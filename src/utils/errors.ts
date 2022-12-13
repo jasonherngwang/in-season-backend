@@ -13,4 +13,11 @@ class AuthenticationError extends Error {
   }
 }
 
-export { ValidationError, AuthenticationError };
+class UploadError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'UploadError';
+  }
+}
+
+export { ValidationError, AuthenticationError, UploadError };
