@@ -5,7 +5,11 @@ import { AuthenticationError } from '../utils/errors';
 const basketRouter = express.Router();
 
 const basketBelongsToUser = async (req: any, res: any): Promise<boolean> => {
-  const { user } = req;
+  // const { user } = req;
+
+  // Testing ------------------------------------
+  const { user } = req.body;
+  // Testing ------------------------------------
 
   if (!user) {
     throw new AuthenticationError('must be logged in to edit/delete basket');
@@ -16,7 +20,7 @@ const basketBelongsToUser = async (req: any, res: any): Promise<boolean> => {
     return res.status(404).end();
   }
 
-  const isBasketOwner = basket.owner.toString() === user._id;
+  const isBasketOwner = basket.owner._id.toString() === user._id;
 
   if (!(basket && isBasketOwner)) {
     // Basket is not owned by user
@@ -46,18 +50,18 @@ basketRouter.get('/:id', async (req, res) => {
 
 // Create one
 basketRouter.post('/', async (req: any, res) => {
-  const { user } = req;
+  // const { user } = req;
+
+  // Testing ------------------------------------
+  const { user } = req.body;
+  // Testing ------------------------------------
 
   if (!user) {
     throw new AuthenticationError('must be logged in to add basket');
   }
 
-  const addedBasket = await basketService.addBasket();
-  const linkedBasket = await basketService.setUserAsBasketOwner(
-    addedBasket._id.toString(),
-    user._id,
-  );
-  return res.status(201).json(linkedBasket);
+  const addedBasket = await basketService.addBasket(user._id);
+  return res.status(201).json(addedBasket);
 });
 
 // Rename

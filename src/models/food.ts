@@ -4,7 +4,7 @@ interface IFood {
   _id: Types.ObjectId;
   name: string;
   category: string;
-  months: number[];
+  months: Schema.Types.Mixed;
   description?: string;
   imageUrl?: string;
 }
@@ -19,7 +19,7 @@ const FoodSchema = new Schema<IFood>({
     required: true,
   },
   months: {
-    type: [Number],
+    type: Schema.Types.Mixed,
     required: true,
   },
   description: String,

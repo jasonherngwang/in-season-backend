@@ -17,34 +17,24 @@ const getBaskets = async (userId: string = ''): Promise<IBasket[]> => {
 
 // Get one basket by id
 const getBasket = async (id: string): Promise<IBasket | null | undefined> => {
-  const basket = await BasketModel.findById(id);
+  const basket = await BasketModel.findById(id).populate(['foods', 'owner']);
   return basket;
 };
 
 // Create one basket
-const addBasket = async (): Promise<IBasket> => {
+const addBasket = async (userId: string): Promise<IBasket> => {
   const newBasket = new BasketModel({
     name: 'My Basket',
+    owner: userId,
+  });
+
+  const user: any = await UserModel.findById(userId);
+  await UserModel.findByIdAndUpdate(userId, {
+    baskets: user.baskets.concat(newBasket._id),
   });
 
   const addedBasket = await newBasket.save();
   return addedBasket;
-};
-
-// basket, user, and food are sent from frontend; they have string id, not _id
-const setUserAsBasketOwner = async (
-  basketId: string,
-  userId: string,
-): Promise<IBasket | null | undefined> => {
-  const user: any = await UserModel.findById(userId);
-  const updatedBasket = await BasketModel.findByIdAndUpdate(
-    basketId,
-    {
-      owner: user._id,
-    },
-    { new: true, runValidators: true, context: 'query' },
-  );
-  return updatedBasket;
 };
 
 // Update operations
@@ -120,7 +110,6 @@ export default {
   getBaskets,
   getBasket,
   addBasket,
-  setUserAsBasketOwner,
   addFoodToBasket,
   deleteFoodFromBasket,
   clearBasket,

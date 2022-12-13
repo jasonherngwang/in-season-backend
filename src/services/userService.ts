@@ -11,7 +11,7 @@ const getUsers = async (): Promise<IUser[]> => {
 
 // Get one
 const getUser = async (id: string): Promise<IUser | null | undefined> => {
-  const user = await UserModel.findById(id).populate('foods');
+  const user = await UserModel.findById(id).populate(['foods', 'baskets']);
   return user;
 };
 

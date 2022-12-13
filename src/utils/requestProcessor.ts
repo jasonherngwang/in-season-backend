@@ -1,5 +1,5 @@
 import { ValidationError } from './errors';
-import { NewFoodEntry, Category, NewUserEntry } from '../types';
+import { NewFoodEntry, Category, NewUserEntry, MonthsInSeason } from '../types';
 
 // New Food validation
 const isString = (text: unknown): text is string =>
@@ -13,12 +13,26 @@ const parseName = (name: unknown): string => {
 };
 
 // 0 (Jan) through 11 (Dec)
-const isArrayOfMonthNums = (array: number[]): boolean =>
-  array.every((num) => [...Array(12).keys()].includes(num));
+const isObjectOfMonths = (monthsObj: object): boolean => {
+  const monthNums = [...Array(12).keys()].map((num) => num.toString());
 
-const parseMonths = (months: unknown): number[] => {
-  if (!Array.isArray(months) || !isArrayOfMonthNums(months)) {
-    throw new ValidationError(`incorrect or missing months: ${months}`);
+  const keysValid = Object.keys(monthsObj).every(
+    (m) => isString(m) && monthNums.includes(m),
+  );
+  const valuesValid = Object.values(monthsObj).every(
+    (m) => typeof m === 'boolean',
+  );
+
+  return keysValid && valuesValid;
+};
+
+const parseMonths = (months: unknown): MonthsInSeason => {
+  if (
+    typeof months !== 'object' ||
+    months === null ||
+    !isObjectOfMonths(months)
+  ) {
+    throw new ValidationError('incorrect or missing month seasonality format');
   }
   return months;
 };

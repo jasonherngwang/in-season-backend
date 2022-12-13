@@ -11,11 +11,14 @@ import loginRouter from './routes/login';
 import middleware from './utils/middleware';
 import logger from './utils/logger';
 
+import seedData from '../data/seedMongo';
+
 const app: Application = express();
 app.use(cors());
 app.use(express.json());
 app.use(middleware.requestLogger);
 app.use(middleware.tokenExtractor);
+app.use(middleware.userExtractor);
 
 console.log('Connecting to', config.MONGODB_URI);
 
@@ -27,6 +30,9 @@ mongoose
   .catch((error) => {
     logger.error('Error connecting to MongoDB:', error.message);
   });
+
+// Seeding
+seedData();
 
 app.use('/api/foods', foodRouter);
 app.use('/api/users', userRouter);

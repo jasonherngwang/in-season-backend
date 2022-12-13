@@ -27,7 +27,7 @@ const addFood = async (entry: NewFoodEntry): Promise<IFood> => {
   return addedFood;
 };
 
-const linkFoodToUser = async (food: any, user: any) => {
+const linkFoodToUser = async (food: IFood, user: any) => {
   // eslint-disable-next-line no-param-reassign
   user.foods = user.foods.concat(food._id);
   await user.save();

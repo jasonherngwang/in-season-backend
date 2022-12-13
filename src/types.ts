@@ -4,12 +4,14 @@ export enum Category {
   Other = 'other',
 }
 
+export type MonthsInSeason = Record<string, boolean> | {};
+
 // Food (used by frontend only)
 export type Food = {
   id: string;
   name: string;
   category: Category;
-  months: number[];
+  months: MonthsInSeason;
   description?: string;
   imageUrl?: string;
 };
@@ -22,6 +24,7 @@ export type User = {
   id: string;
   username: string;
   foods: Food[];
+  baskets: Basket[];
 };
 
 // Provided by user when signing up

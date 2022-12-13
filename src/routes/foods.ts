@@ -48,6 +48,7 @@ foodRouter.get('/:id', async (req, res) => {
 foodRouter.post('/', async (req: any, res) => {
   // Middleware queries user by id from db and inserts into request
   const { body, user } = req;
+  console.log(user);
 
   if (!user) {
     throw new AuthenticationError('must be logged in to add food');

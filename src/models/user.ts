@@ -5,6 +5,7 @@ interface IUser {
   username: string;
   passwordHash: string;
   foods: Types.ObjectId[];
+  baskets: Types.ObjectId[];
 }
 
 const UserSchema = new Schema<IUser>({
@@ -22,6 +23,12 @@ const UserSchema = new Schema<IUser>({
     {
       type: Schema.Types.ObjectId,
       ref: 'Food',
+    },
+  ],
+  baskets: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Basket',
     },
   ],
 });
