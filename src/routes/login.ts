@@ -1,7 +1,7 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import { UserModel } from '../models/user';
+import { IUser, UserModel } from '../models/user';
 import { AuthenticationError } from '../utils/errors';
 
 const loginRouter = express.Router();
@@ -9,7 +9,7 @@ const loginRouter = express.Router();
 loginRouter.post('/', async (req, res) => {
   const { username, password } = req.body;
 
-  const user: any = await UserModel.findOne({ username });
+  const user: IUser | null = await UserModel.findOne({ username });
 
   const passwordCorrect =
     user === null ? false : await bcrypt.compare(password, user.passwordHash);
@@ -30,7 +30,6 @@ loginRouter.post('/', async (req, res) => {
   return res.status(200).send({
     token,
     username: user.username,
-    name: user.name,
   });
 });
 

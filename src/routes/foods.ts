@@ -1,11 +1,11 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import foodService from '../services/foodService';
 import { AuthenticationError } from '../utils/errors';
 import { toNewFoodEntry } from '../utils/requestProcessor';
 
 const foodRouter = express.Router();
 
-const foodBelongsToUser = async (req: any, res: any): Promise<boolean> => {
+const foodBelongsToUser = async (req: Request, res: Response) => {
   const { user } = req;
 
   if (!user) {
@@ -17,8 +17,9 @@ const foodBelongsToUser = async (req: any, res: any): Promise<boolean> => {
     return res.status(404).end();
   }
 
-  // Compare Mongoose ObjectIDs
-  const isFoodOwner = user.foods.includes(food._id);
+  const isFoodOwner = user.foods
+    .map((f) => f.toString())
+    .includes(food._id.toString());
 
   if (!(food && isFoodOwner)) {
     // Food is not owned by user
@@ -45,7 +46,7 @@ foodRouter.get('/:id', async (req, res) => {
 });
 
 // Create one (logged-in users only)
-foodRouter.post('/', async (req: any, res) => {
+foodRouter.post('/', async (req: Request, res) => {
   // Middleware queries user by id from db and inserts into request
   const { body, user } = req;
   console.log(user);
@@ -61,7 +62,7 @@ foodRouter.post('/', async (req: any, res) => {
 });
 
 // Update one (logged-in users only, and only foods that belong to them)
-foodRouter.put('/:id', async (req: any, res) => {
+foodRouter.put('/:id', async (req: Request, res) => {
   const authorized = await foodBelongsToUser(req, res);
   if (!authorized) {
     return res.status(404).end();
@@ -77,7 +78,7 @@ foodRouter.put('/:id', async (req: any, res) => {
 });
 
 // Delete one (logged-in users only, and only foods that belong to them)
-foodRouter.delete('/:id', async (req: any, res) => {
+foodRouter.delete('/:id', async (req: Request, res) => {
   const authorized = await foodBelongsToUser(req, res);
   if (!authorized) {
     return res.status(404).end();
