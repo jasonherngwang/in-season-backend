@@ -1,4 +1,4 @@
-import fs from 'fs';
+import * as fs from 'fs';
 import { NewFoodEntry, Category } from '../src/types';
 
 let seedData = require('./rawSeedData.json');
