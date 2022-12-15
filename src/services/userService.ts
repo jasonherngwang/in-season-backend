@@ -1,7 +1,11 @@
 import bcrypt from 'bcrypt';
+import fs from 'fs';
+import { Types } from 'mongoose';
+import basketService from './basketService';
 import { ValidationError } from '../utils/errors';
-import { NewUserEntry } from '../types';
-import { UserModel } from '../models/user';
+import { NewUserEntry, NewFoodEntry } from '../types';
+import { IUser, UserModel } from '../models/user';
+import { FoodModel } from '../models/food';
 
 const getUsers = async () => {
   const users = await UserModel.find({});
@@ -11,6 +15,30 @@ const getUsers = async () => {
 const getUser = async (id: string) => {
   const user = await UserModel.findById(id).populate(['foods', 'basket']);
   return user;
+};
+
+// Each new user gets their own copy of all foods
+const initializeUserFoods = async (userId: string) => {
+  const data: NewFoodEntry[] = JSON.parse(
+    fs.readFileSync(`${__dirname}/../../data/seedData.json`, 'utf-8'),
+  );
+
+  const allFoods: Types.ObjectId[] = [];
+
+  await Promise.all(
+    data.map(async (food) => {
+      const savedFood = await new FoodModel(food).save();
+      allFoods.push(savedFood._id);
+    }),
+  );
+
+  await UserModel.findByIdAndUpdate(
+    userId,
+    {
+      foods: allFoods,
+    },
+    { new: true, runValidators: true, context: 'query' },
+  );
 };
 
 const addUser = async (entry: NewUserEntry) => {
@@ -32,7 +60,14 @@ const addUser = async (entry: NewUserEntry) => {
     passwordHash,
   });
 
-  const addedUser = await newUser.save();
+  let addedUser: IUser | null = await newUser.save();
+  // Iniitalize empty basket for user
+  await basketService.addBasket(addedUser._id.toString());
+  // Add copy of all "seed" foods to user
+  await initializeUserFoods(addedUser._id.toString());
+  // Get updated state of user
+  addedUser = await UserModel.findById(addedUser._id.toString());
+
   return addedUser;
 };
 

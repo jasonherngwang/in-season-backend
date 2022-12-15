@@ -1,15 +1,26 @@
 import { Schema, model, Types } from 'mongoose';
 
+type IBasketItem = {
+  food: Types.ObjectId;
+  acquired: Boolean;
+};
+
 interface IBasket {
   _id: Types.ObjectId;
-  foods?: Types.ObjectId[];
+  foods?: IBasketItem[];
 }
 
 const BasketSchema = new Schema<IBasket>({
   foods: [
     {
-      type: Schema.Types.ObjectId,
-      ref: 'Food',
+      food: {
+        type: Schema.Types.ObjectId,
+        ref: 'Food',
+      },
+      acquired: {
+        type: Boolean,
+        required: true,
+      },
     },
   ],
 });
@@ -26,4 +37,4 @@ BasketSchema.set('toJSON', {
 
 const BasketModel = model<IBasket>('Basket', BasketSchema);
 
-export { IBasket, BasketModel };
+export { IBasket, IBasketItem, BasketModel };

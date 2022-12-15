@@ -1,7 +1,6 @@
-import mongoose from 'mongoose';
 import { FoodModel } from '../models/food';
 import { UserModel } from '../models/user';
-import { BasketModel } from '../models/basket';
+import { IBasketItem, BasketModel } from '../models/basket';
 
 const getBasket = async (id: string) => {
   const basket = await BasketModel.findById(id).populate(['foods']);
@@ -29,12 +28,19 @@ const addFoodToBasket = async (basketId: string, foodId: string) => {
   const basket: any = await BasketModel.findById(basketId);
   if (!food || !basket) return null;
 
+  const foodToAdd = {
+    food: food._id,
+    acquired: false,
+  };
+
   const updatedBasket = await BasketModel.findByIdAndUpdate(
     basketId,
     {
-      foods: basket.foods.includes(food._id)
+      foods: basket.foods.some(
+        (f: IBasketItem) => f.food.toString() === food._id.toString(),
+      )
         ? basket.foods
-        : basket.foods.concat(food._id),
+        : basket.foods.concat(foodToAdd),
     },
     { new: true, runValidators: true, context: 'query' },
   );
@@ -46,11 +52,13 @@ const deleteFoodFromBasket = async (basketId: string, foodId: string) => {
   const basket: any = await BasketModel.findById(basketId);
   if (!food || !basket) return null;
 
+  console.log(basket);
+
   const updatedBasket = await BasketModel.findByIdAndUpdate(
     basketId,
     {
       foods: basket.foods.filter(
-        (f: mongoose.Types.ObjectId) => f.toString() === food._id,
+        (f: IBasketItem) => f.food.toString() !== food._id.toString(),
       ),
     },
     { new: true, runValidators: true, context: 'query' },

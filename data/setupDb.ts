@@ -21,7 +21,9 @@ const setupDb = async () => {
     await BasketModel.deleteMany({});
 
     // Create admin and basket
-    const admin: IUser = await userService.addUser(adminCredentials);
+    const admin: IUser | null = await userService.addUser(adminCredentials);
+    if (!admin) return;
+
     await basketService.addBasket(admin._id.toString());
 
     // Link admin to all foods, so they can edit all
