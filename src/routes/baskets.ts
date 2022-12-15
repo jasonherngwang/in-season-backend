@@ -5,11 +5,7 @@ import { AuthenticationError } from '../utils/errors';
 const basketRouter = express.Router();
 
 const basketBelongsToUser = async (req: any, res: any): Promise<boolean> => {
-  // const { user } = req;
-
-  // Testing ------------------------------------
-  const { user } = req.body;
-  // Testing ------------------------------------
+  const { user } = req;
 
   if (!user) {
     throw new AuthenticationError('must be logged in to edit/delete basket');

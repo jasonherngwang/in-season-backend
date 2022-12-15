@@ -12,7 +12,7 @@ import loginRouter from './routes/login';
 import middleware from './utils/middleware';
 import logger from './utils/logger';
 
-import setupDb from '../data/setupDb';
+// import setupDb from '../data/setupDb';
 
 const app: Application = express();
 app.use(cors());
@@ -33,7 +33,7 @@ mongoose
   });
 
 // Seeding
-setupDb();
+// setupDb();
 
 app.use('/api/foods', foodRouter, imageUploadRouter);
 app.use('/api/users', userRouter);

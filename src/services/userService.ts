@@ -1,22 +1,19 @@
 import bcrypt from 'bcrypt';
 import { ValidationError } from '../utils/errors';
 import { NewUserEntry } from '../types';
-import { IUser, UserModel } from '../models/user';
+import { UserModel } from '../models/user';
 
-// // Get all
-const getUsers = async (): Promise<IUser[]> => {
+const getUsers = async () => {
   const users = await UserModel.find({});
   return users;
 };
 
-// Get one
-const getUser = async (id: string): Promise<IUser | null | undefined> => {
+const getUser = async (id: string) => {
   const user = await UserModel.findById(id).populate(['foods', 'baskets']);
   return user;
 };
 
-// // Create one
-const addUser = async (entry: NewUserEntry): Promise<IUser> => {
+const addUser = async (entry: NewUserEntry) => {
   const { username, password } = entry;
   const existingUser = await UserModel.findOne({ username });
 
@@ -40,7 +37,7 @@ const addUser = async (entry: NewUserEntry): Promise<IUser> => {
 };
 
 // Delete user along with their foods and baskets
-const deleteUser = async (id: string): Promise<void> => {
+const deleteUser = async (id: string) => {
   await UserModel.findByIdAndDelete(id);
 };
 
