@@ -1,10 +1,20 @@
 import { NewFoodEntry } from '../types';
 import { IFood, FoodModel } from '../models/food';
+import userService from './userService';
 
 // Get all
-const getFoods = async (): Promise<IFood[]> => {
+const getFoods = async () => {
   const foods = await FoodModel.find({});
   return foods;
+};
+
+// Get all for one user
+const getUserFoods = async (id: string) => {
+  const user = userService.getUser(id);
+  if (user) {
+    return user;
+  }
+  return null;
 };
 
 // Get one
@@ -57,6 +67,7 @@ const deleteFood = async (id: string): Promise<void> => {
 
 export default {
   getFoods,
+  getUserFoods,
   getFood,
   addFood,
   linkFoodToUser,

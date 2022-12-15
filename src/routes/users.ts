@@ -1,14 +1,18 @@
-import express from 'express';
+import express, { Request } from 'express';
 import userService from '../services/userService';
 import { toNewUserEntry } from '../utils/requestProcessor';
 import { AuthenticationError } from '../utils/errors';
 
 const userRouter = express.Router();
 
-// Get all
-userRouter.get('/', async (_req, res) => {
-  const users = await userService.getUsers();
-  return res.json(users);
+// Get user data
+userRouter.get('/', async (req: Request, res) => {
+  const { user } = req;
+  if (user) {
+    const existingUser = await userService.getUser(user._id.toString());
+    return res.json(existingUser);
+  }
+  return res.status(404).end();
 });
 
 // Get one
@@ -29,7 +33,7 @@ userRouter.post('/', async (req, res) => {
 });
 
 // Delete one
-userRouter.delete('/:id', async (req: any, res) => {
+userRouter.delete('/:id', async (req: Request, res) => {
   const { user } = req;
   const existingUser = await userService.getUser(req.params.id);
 

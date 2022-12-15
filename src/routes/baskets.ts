@@ -13,6 +13,23 @@ basketRouter.get('/:id', async (req, res) => {
   return res.status(404).end();
 });
 
+// Toggle food acquired state
+basketRouter.patch('/:id/acquire', async (req: Request, res) => {
+  const { body } = req;
+  let updatedBasket = await basketService.getBasket(req.params.id);
+
+  updatedBasket = await basketService.toggleFoodAcquired(
+    req.params.id,
+    body.foodToToggle,
+    body.acquired,
+  );
+
+  if (updatedBasket) {
+    return res.status(200).json(updatedBasket);
+  }
+  return res.status(400).end();
+});
+
 // Add food to basket
 basketRouter.patch('/:id/add', async (req: Request, res) => {
   const { body } = req;

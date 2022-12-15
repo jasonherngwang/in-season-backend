@@ -23,6 +23,34 @@ const addBasket = async (userId: string) => {
 };
 
 // Update operations
+const toggleFoodAcquired = async (
+  basketId: string,
+  foodId: string,
+  acquired: boolean,
+) => {
+  const basket: any = await BasketModel.findById(basketId);
+  if (!basket) return null;
+
+  const updatedFoods = basket.foods.map((f: IBasketItem) => {
+    if (f.food.toString() === foodId) {
+      return {
+        food: f.food,
+        acquired,
+      };
+    }
+    return f;
+  });
+
+  const updatedBasket = await BasketModel.findByIdAndUpdate(
+    basketId,
+    {
+      foods: updatedFoods,
+    },
+    { new: true, runValidators: true, context: 'query' },
+  );
+  return updatedBasket;
+};
+
 const addFoodToBasket = async (basketId: string, foodId: string) => {
   const food: any = await FoodModel.findById(foodId);
   const basket: any = await BasketModel.findById(basketId);
@@ -86,6 +114,7 @@ const deleteBasket = async (id: string) => {
 export default {
   getBasket,
   addBasket,
+  toggleFoodAcquired,
   addFoodToBasket,
   deleteFoodFromBasket,
   clearBasket,
