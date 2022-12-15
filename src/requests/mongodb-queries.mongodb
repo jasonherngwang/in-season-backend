@@ -4,7 +4,9 @@ use('in-season');
 
 // The drop() command destroys all data from a collection.
 // Make sure you run it against the correct database and collection.
-// db.sales.drop();
+db.baskets.drop();
+db.foods.drop();
+db.users.drop();
 
 // Insert a few documents into the sales collection.
 // db.sales.insertMany([
@@ -32,4 +34,4 @@ use('in-season');
 // You can use hasNext()/next() to iterate through the cursor page by page.
 // db.sales.aggregate(aggregation);
 
-db.foods.find({})
+// db.foods.find({})

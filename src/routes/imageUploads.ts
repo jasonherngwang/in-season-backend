@@ -63,7 +63,7 @@ imageUploadRouter.post(
     }
 
     // Generate a unique filename
-    const filename = `${user.id}/${uuidv4()}-${file.originalname}`;
+    const filename = `${user._id}/${uuidv4()}-${file.originalname}`;
 
     const params: S3.PutObjectRequest = {
       Bucket: process.env.AWS_BUCKET_NAME as string,

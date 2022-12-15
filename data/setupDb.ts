@@ -1,12 +1,7 @@
-import { Types } from 'mongoose';
+import fs from 'fs';
 import { NewUserEntry, NewFoodEntry } from '../src/types';
-import { FoodModel } from '../src/models/food';
 import { IUser, UserModel } from '../src/models/user';
-import { BasketModel } from '../src/models/basket';
 import userService from '../src/services/userService';
-import basketService from '../src/services/basketService';
-
-const data: NewFoodEntry[] = require('./seedData.json');
 
 const adminCredentials: NewUserEntry = {
   username: 'admin',
@@ -14,40 +9,10 @@ const adminCredentials: NewUserEntry = {
 };
 
 const setupDb = async () => {
-  try {
-    // Clear db
-    await FoodModel.deleteMany({});
-    await UserModel.deleteMany({});
-    await BasketModel.deleteMany({});
+  await UserModel.deleteMany({});
 
-    // Create admin and basket
-    const admin: IUser | null = await userService.addUser(adminCredentials);
-    if (!admin) return;
-
-    await basketService.addBasket(admin._id.toString());
-
-    // Link admin to all foods, so they can edit all
-    const allFoods: Types.ObjectId[] = [];
-
-    await Promise.all(
-      data.map(async (food) => {
-        const savedFood = await new FoodModel(food).save();
-        allFoods.push(savedFood._id);
-      }),
-    );
-
-    await UserModel.findByIdAndUpdate(
-      admin._id,
-      {
-        foods: allFoods,
-      },
-      { new: true, runValidators: true, context: 'query' },
-    );
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error(error);
-    }
-  }
+  const admin: IUser | null = await userService.addUser(adminCredentials);
+  if (!admin) return;
 };
 
 export default setupDb;

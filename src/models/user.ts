@@ -1,13 +1,59 @@
 import { Schema, model, Types } from 'mongoose';
+import { MonthsInSeason } from '../types';
+
+// Interfaces
+interface IFood {
+  _id: Types.ObjectId;
+  name: string;
+  category: string;
+  months: MonthsInSeason;
+  description?: string;
+  imageUrl?: string;
+}
+
+interface IBasketFood {
+  food: IFood;
+  acquired: boolean;
+}
 
 interface IUser {
   _id: Types.ObjectId;
   username: string;
   passwordHash: string;
-  foods: Types.ObjectId[];
-  basket: Types.ObjectId;
+  foods?: IFood[];
+  basket: IBasketFood[];
 }
 
+// Schemas
+// Mongoose auto-created _id for subdocuments
+const FoodSchema = new Schema<IFood>({
+  name: {
+    type: String,
+    required: true,
+  },
+  category: {
+    type: String,
+    required: true,
+  },
+  months: {
+    type: Schema.Types.Mixed,
+    required: true,
+  },
+  description: String,
+  imageUrl: String,
+});
+
+// Basket items can be marked as acquired during a shopping trip
+const BasketFood = new Schema<IBasketFood>({
+  food: FoodSchema,
+  acquired: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
+});
+
+// All subdocuments are embedded inside the top-level User document
 const UserSchema = new Schema<IUser>({
   username: {
     type: String,
@@ -19,29 +65,20 @@ const UserSchema = new Schema<IUser>({
     required: true,
     minLength: 1,
   },
-  foods: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Food',
-    },
-  ],
-  basket: {
-    type: Schema.Types.ObjectId,
-    ref: 'Basket',
-  },
+  foods: [FoodSchema],
+  basket: [BasketFood],
 });
 
 /* eslint-disable no-param-reassign */
 UserSchema.set('toJSON', {
-  transform: (_document: any, returnedObject: any) => {
-    returnedObject.id = returnedObject._id.toString();
-    delete returnedObject._id;
+  transform: (_document, returnedObject) => {
     delete returnedObject.__v;
-    delete returnedObject.passwordHash; // hash should not be revealed
+    delete returnedObject.passwordHash;
   },
 });
 /* eslint-enable no-param-reassign */
 
-const UserModel = model<IUser>('User', UserSchema);
+const UserModel = model('User', UserSchema);
 
-export { IUser, UserModel };
+// eslint-disable-next-line object-curly-newline
+export { IFood, IBasketFood, IUser, UserModel };

@@ -1,21 +1,16 @@
 import express, { Request } from 'express';
 import basketService from '../services/basketService';
+import { AuthenticationError } from '../utils/errors';
 
 const basketRouter = express.Router();
 
-// Get one
-basketRouter.get('/:id', async (req, res) => {
-  const basket = await basketService.getBasket(req.params.id);
-
-  if (basket) {
-    return res.json(basket);
-  }
-  return res.status(404).end();
-});
-
 // Toggle food acquired state
 basketRouter.patch('/:id/acquire', async (req: Request, res) => {
-  const { body } = req;
+  const { body, user } = req;
+  if (!user) {
+    throw new AuthenticationError('must be logged in to edit basket');
+  }
+
   let updatedBasket = await basketService.getBasket(req.params.id);
 
   updatedBasket = await basketService.toggleFoodAcquired(
@@ -32,7 +27,11 @@ basketRouter.patch('/:id/acquire', async (req: Request, res) => {
 
 // Add food to basket
 basketRouter.patch('/:id/add', async (req: Request, res) => {
-  const { body } = req;
+  const { body, user } = req;
+  if (!user) {
+    throw new AuthenticationError('must be logged in to add food to basket');
+  }
+
   let updatedBasket = await basketService.getBasket(req.params.id);
 
   updatedBasket = await basketService.addFoodToBasket(
@@ -48,7 +47,13 @@ basketRouter.patch('/:id/add', async (req: Request, res) => {
 
 // Delete food from basket
 basketRouter.patch('/:id/delete', async (req: Request, res) => {
-  const { body } = req;
+  const { body, user } = req;
+  if (!user) {
+    throw new AuthenticationError(
+      'must be logged in to delete food from basket',
+    );
+  }
+
   let updatedBasket = await basketService.getBasket(req.params.id);
 
   updatedBasket = await basketService.deleteFoodFromBasket(

@@ -1,7 +1,7 @@
 import { ValidationError } from './errors';
 import { NewFoodEntry, Category, NewUserEntry, MonthsInSeason } from '../types';
 
-// New Food validation
+// New food creation
 const isString = (text: unknown): text is string =>
   typeof text === 'string' || text instanceof String;
 
@@ -12,18 +12,24 @@ const parseName = (name: unknown): string => {
   return name;
 };
 
-// 0 (Jan) through 11 (Dec)
-const isObjectOfMonths = (monthsObj: object): boolean => {
+// { monthNum: boolean } format: { "0": true, "1": false, ..., "11": true }
+const isObjectOfMonths = (months: object): boolean => {
   const monthNums = [...Array(12).keys()].map((num) => num.toString());
 
-  const keysValid = Object.keys(monthsObj).every(
-    (m) => isString(m) && monthNums.includes(m),
-  );
-  const valuesValid = Object.values(monthsObj).every(
+  const hasTwelveKeys = Object.keys(months).length === 12;
+  const hasAllMonths = monthNums.every((m) => m in months);
+  if (!(hasTwelveKeys && hasAllMonths)) {
+    throw new ValidationError('must have all twelve months');
+  }
+
+  const valuesValid = Object.values(months).every(
     (m) => typeof m === 'boolean',
   );
+  if (!valuesValid) {
+    throw new ValidationError('values must be booleans');
+  }
 
-  return keysValid && valuesValid;
+  return true;
 };
 
 const parseMonths = (months: unknown): MonthsInSeason => {
@@ -34,7 +40,8 @@ const parseMonths = (months: unknown): MonthsInSeason => {
   ) {
     throw new ValidationError('incorrect or missing month seasonality format');
   }
-  return months;
+
+  return { ...months };
 };
 
 // Enum fields
@@ -74,8 +81,8 @@ type NewFoodInputFields = {
   name: unknown;
   category: unknown;
   months: unknown;
-  description: unknown;
-  imageUrl: unknown;
+  description?: unknown;
+  imageUrl?: unknown;
 };
 
 // Used to convert request body to object with expected types
@@ -97,7 +104,7 @@ const toNewFoodEntry = ({
   return newFood;
 };
 
-// New User validation
+// New user signup
 const parseUsername = (username: unknown): string => {
   if (!username || !isString(username)) {
     throw new ValidationError('incorrect or missing username');

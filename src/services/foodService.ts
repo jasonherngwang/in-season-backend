@@ -1,76 +1,100 @@
+import { Types } from 'mongoose';
 import { NewFoodEntry } from '../types';
-import { IFood, FoodModel } from '../models/food';
+import { IFood, UserModel } from '../models/user';
 import userService from './userService';
+import { ValidationError } from '../utils/errors';
 
-// Get all
-const getFoods = async () => {
-  const foods = await FoodModel.find({});
-  return foods;
-};
-
-// Get all for one user
-const getUserFoods = async (id: string) => {
-  const user = userService.getUser(id);
-  if (user) {
-    return user;
+const getFood = async (userId: string, foodId: string) => {
+  const user = await userService.getUser(userId);
+  if (!(user && user.foods)) {
+    throw new ValidationError('user does not exist');
   }
-  return null;
+
+  const existingFood = user.foods.find(
+    (food) => food._id.toString() === foodId,
+  );
+  if (existingFood) {
+    return existingFood;
+  }
+  throw new ValidationError('food does not exists');
 };
 
-// Get one
-const getFood = async (id: string) => {
-  const food = await FoodModel.findById(id);
-  return food;
-};
+// Create one; no duplicates (name + category) allowed
+const addFood = async (userId: string, newFood: NewFoodEntry) => {
+  const user = await userService.getUser(userId);
+  if (!(user && user.foods)) {
+    throw new ValidationError('user does not exist');
+  }
 
-// Create one
-const addFood = async (entry: NewFoodEntry) => {
-  const newFood = new FoodModel({
-    name: entry.name,
-    category: entry.category,
-    months: entry.months,
-    description: entry.description,
-    imageUrl: entry.imageUrl,
-  });
+  const existingFood = user.foods.find(
+    (food) => food.name === newFood.name && food.category === newFood.category,
+  );
+  if (existingFood) {
+    throw new ValidationError('food already exists');
+  }
 
-  const addedFood = await newFood.save();
-  return addedFood;
-};
-
-const linkFoodToUser = async (food: IFood, user: any) => {
-  // eslint-disable-next-line no-param-reassign
-  user.foods = user.foods.concat(food._id);
+  const foodWithId: IFood = {
+    ...newFood,
+    _id: new Types.ObjectId(),
+  };
+  user.foods.push(foodWithId);
   await user.save();
+  return foodWithId;
 };
 
 // Update one
-const updateFood = async (id: string, entry: NewFoodEntry) => {
-  const updatedFood = FoodModel.findByIdAndUpdate(
-    id,
+const updateFood = async (
+  userId: string,
+  foodId: string,
+  newData: NewFoodEntry,
+) => {
+  const user = await userService.getUser(userId);
+  if (!(user && user.foods)) {
+    throw new ValidationError('user does not exist');
+  }
+
+  const updatedUser = await UserModel.findByIdAndUpdate(
+    userId,
     {
-      name: entry.name,
-      category: entry.category,
-      months: entry.months,
-      description: entry.description,
-      imageUrl: entry.imageUrl,
+      foods: user.foods.map((food) => {
+        if (food._id.toString() === foodId) {
+          return {
+            ...newData,
+            _id: food._id,
+          };
+        }
+        return food;
+      }),
     },
     { new: true, runValidators: true, context: 'query' },
   );
 
-  return updatedFood;
+  if (!(updatedUser && updatedUser.foods)) {
+    throw new ValidationError('user was not updated');
+  }
+  return updatedUser.foods.find((food) => food._id.toString() === foodId);
 };
 
-// Delete one
-const deleteFood = async (id: string): Promise<void> => {
-  await FoodModel.findByIdAndDelete(id);
+// Delete food from both user's food list and their basket
+const deleteFood = async (userId: string, foodId: string) => {
+  const user = await userService.getUser(userId);
+  if (!(user && user.foods)) {
+    throw new ValidationError('user does not exist');
+  }
+
+  await UserModel.findByIdAndUpdate(
+    userId,
+    {
+      foods: user.foods.filter((food) => food._id.toString() !== foodId),
+      basket: user.basket.filter((item) => item.food._id.toString() !== foodId),
+    },
+    { new: true, runValidators: true, context: 'query' },
+  );
 };
 
 export default {
-  getFoods,
-  getUserFoods,
   getFood,
   addFood,
-  linkFoodToUser,
   updateFood,
   deleteFood,
 };

@@ -5,43 +5,32 @@ import { AuthenticationError } from '../utils/errors';
 
 const userRouter = express.Router();
 
-// Get user data
+// Request type has been extended with `user` property
+// Middleware has validated the JWT token; no additional auth needed here
 userRouter.get('/', async (req: Request, res) => {
   const { user } = req;
-  if (user) {
-    const existingUser = await userService.getUser(user._id.toString());
-    return res.json(existingUser);
+  if (!user) {
+    return res.status(404).end();
   }
-  return res.status(404).end();
+
+  const existingUser = await userService.getUser(user._id.toString());
+  return res.json(existingUser);
 });
 
-// Get one
-userRouter.get('/:id', async (req, res) => {
-  const user = await userService.getUser(req.params.id);
-
-  if (user) {
-    return res.json(user);
-  }
-  return res.status(404).end();
-});
-
-// Create one
 userRouter.post('/', async (req, res) => {
+  // Validate username and password input format; ValidationError may be thrown
   const newUserEntry = toNewUserEntry(req.body);
   const addedUser = await userService.addUser(newUserEntry);
   return res.status(201).json(addedUser);
 });
 
-// Delete one
-userRouter.delete('/:id', async (req: Request, res) => {
+userRouter.delete('/', async (req: Request, res) => {
   const { user } = req;
-  const existingUser = await userService.getUser(req.params.id);
-
-  if (!user || !existingUser) {
-    throw new AuthenticationError('must be logged in to delete oneself');
+  if (!user) {
+    throw new AuthenticationError('only the user can delete themself');
   }
 
-  await userService.deleteUser(req.params.id);
+  await userService.deleteUser(user._id.toString());
   return res.status(204).end();
 });
 

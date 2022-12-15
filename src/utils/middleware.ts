@@ -3,6 +3,7 @@ import jwt, { JwtPayload } from 'jsonwebtoken';
 import morgan from 'morgan';
 import logger from './logger';
 import { UserModel } from '../models/user';
+import { AuthenticationError } from './errors';
 
 morgan.token('body', (req: any) => {
   const isPostOrPut = ['POST', 'PUT'].includes(req.method)
@@ -27,7 +28,7 @@ const tokenExtractor: RequestHandler = (req: Request, _res, next) => {
   return next();
 };
 
-const userExtractor: RequestHandler = async (req: Request, res, next) => {
+const userExtractor: RequestHandler = async (req: Request, _res, next) => {
   req.user = null;
 
   if (req.token) {
@@ -37,7 +38,7 @@ const userExtractor: RequestHandler = async (req: Request, res, next) => {
     ) as JwtPayload;
 
     if (!decodedToken.id) {
-      return res.status(401).json({ error: 'token missing or invalid' });
+      throw new AuthenticationError('token missing or invalid');
     }
     req.user = await UserModel.findById(decodedToken.id);
   }
