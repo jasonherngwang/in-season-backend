@@ -4,49 +4,23 @@ import { AuthenticationError } from '../utils/errors';
 
 const basketRouter = express.Router();
 
-// Toggle food acquired state
-basketRouter.patch('/:id/acquire', async (req: Request, res) => {
-  const { body, user } = req;
-  if (!user) {
-    throw new AuthenticationError('must be logged in to edit basket');
-  }
-
-  let updatedBasket = await basketService.getBasket(req.params.id);
-
-  updatedBasket = await basketService.toggleFoodAcquired(
-    req.params.id,
-    body.foodToToggle,
-    body.acquired,
-  );
-
-  if (updatedBasket) {
-    return res.status(200).json(updatedBasket);
-  }
-  return res.status(400).end();
-});
-
 // Add food to basket
-basketRouter.patch('/:id/add', async (req: Request, res) => {
+basketRouter.patch('/add', async (req: Request, res) => {
   const { body, user } = req;
   if (!user) {
     throw new AuthenticationError('must be logged in to add food to basket');
   }
 
-  let updatedBasket = await basketService.getBasket(req.params.id);
-
-  updatedBasket = await basketService.addFoodToBasket(
-    req.params.id,
-    body.foodToAdd,
+  const updatedBasket = await basketService.addFood(
+    user._id.toString(),
+    body.food,
   );
 
-  if (updatedBasket) {
-    return res.status(200).json(updatedBasket);
-  }
-  return res.status(400).end();
+  return res.json(updatedBasket);
 });
 
 // Delete food from basket
-basketRouter.patch('/:id/delete', async (req: Request, res) => {
+basketRouter.patch('/delete', async (req: Request, res) => {
   const { body, user } = req;
   if (!user) {
     throw new AuthenticationError(
@@ -54,24 +28,37 @@ basketRouter.patch('/:id/delete', async (req: Request, res) => {
     );
   }
 
-  let updatedBasket = await basketService.getBasket(req.params.id);
-
-  updatedBasket = await basketService.deleteFoodFromBasket(
-    req.params.id,
-    body.foodToDelete,
-  );
-
-  if (updatedBasket) {
-    return res.status(200).json(updatedBasket);
-  }
-  return res.status(400).end();
+  await basketService.deleteFood(user._id.toString(), body.food);
+  return res.status(204).end();
 });
 
 // Delete all foods from basket
-basketRouter.patch('/:id/clear', async (req: Request, res) => {
-  await basketService.clearBasket(req.params.id);
+basketRouter.patch('/clear', async (req: Request, res) => {
+  const { user } = req;
+  if (!user) {
+    throw new AuthenticationError(
+      'must be logged in to delete food from basket',
+    );
+  }
 
+  await basketService.clear(user._id.toString());
   return res.status(204).end();
+});
+
+// Toggle food acquired state
+basketRouter.patch('/toggle', async (req: Request, res) => {
+  const { body, user } = req;
+  if (!user) {
+    throw new AuthenticationError('must be logged in to edit basket');
+  }
+
+  const updatedBasket = await basketService.toggleAcquired(
+    user._id.toString(),
+    body.food,
+    body.acquired,
+  );
+
+  return res.json(updatedBasket);
 });
 
 export default basketRouter;

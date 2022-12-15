@@ -37,7 +37,7 @@ mongoose
 
 app.use('/api/foods', foodRouter, imageUploadRouter);
 app.use('/api/users', userRouter);
-app.use('/api/baskets', basketRouter);
+app.use('/api/basket', basketRouter);
 app.use('/api/login', loginRouter);
 
 app.use(middleware.unknownEndpoint);

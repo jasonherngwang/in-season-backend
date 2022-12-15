@@ -1,122 +1,97 @@
-import { FoodModel } from '../models/food';
-import { UserModel } from '../models/user';
-import { IBasketItem, BasketModel } from '../models/basket';
+import { Types } from 'mongoose';
+import { IBasketFood, UserModel } from '../models/user';
+import userService from './userService';
+import { ValidationError } from '../utils/errors';
 
-const getBasket = async (id: string) => {
-  const basket = await BasketModel.findById(id).populate(['foods']);
-  return basket;
+const addFood = async (userId: string, foodId: string) => {
+  const user = await userService.getUser(userId);
+  if (!(user && user.foods)) {
+    throw new ValidationError('user does not exist');
+  }
+
+  const foodToAdd = user.foods.find((food) => food._id.toString() === foodId);
+  if (!foodToAdd) {
+    throw new ValidationError('food does not exist');
+  }
+
+  const foodInBasket = user.basket.find(
+    (item) => item.food._id.toString() === foodId,
+  );
+  if (foodInBasket) {
+    throw new ValidationError('food already in basket');
+  }
+
+  const foodWithId: IBasketFood = {
+    food: foodToAdd,
+    acquired: false,
+    _id: new Types.ObjectId(),
+  };
+  user.basket.push(foodWithId);
+  await user.save();
+  return foodWithId;
 };
 
-// Created for the user upon account creation
-const addBasket = async (userId: string) => {
-  const newBasket = new BasketModel({
-    foods: [],
-  });
+const deleteFood = async (userId: string, foodId: string) => {
+  const user = await userService.getUser(userId);
+  if (!(user && user.foods)) {
+    throw new ValidationError('user does not exist');
+  }
 
-  const addedBasket = await newBasket.save();
+  await UserModel.findByIdAndUpdate(
+    userId,
+    {
+      basket: user.basket.filter((item) => item.food._id.toString() !== foodId),
+    },
+    { new: true, runValidators: true, context: 'query' },
+  );
+};
 
-  await UserModel.findByIdAndUpdate(userId, {
-    basket: addedBasket._id,
-  });
+const clear = async (userId: string) => {
+  const user = await userService.getUser(userId);
+  if (!(user && user.foods)) {
+    throw new ValidationError('user does not exist');
+  }
 
-  return addedBasket;
+  user.basket = [];
+  await user.save();
 };
 
 // Update operations
-const toggleFoodAcquired = async (
-  basketId: string,
+const toggleAcquired = async (
+  userId: string,
   foodId: string,
   acquired: boolean,
 ) => {
-  const basket: any = await BasketModel.findById(basketId);
-  if (!basket) return null;
+  const user = await userService.getUser(userId);
+  if (!(user && user.foods)) {
+    throw new ValidationError('user does not exist');
+  }
 
-  const updatedFoods = basket.foods.map((f: IBasketItem) => {
-    if (f.food.toString() === foodId) {
-      return {
-        food: f.food,
-        acquired,
-      };
-    }
-    return f;
-  });
-
-  const updatedBasket = await BasketModel.findByIdAndUpdate(
-    basketId,
+  const updatedUser = await UserModel.findByIdAndUpdate(
+    userId,
     {
-      foods: updatedFoods,
+      basket: user.basket.map((item) => {
+        if (item.food._id.toString() === foodId) {
+          return {
+            food: item.food,
+            acquired,
+          };
+        }
+        return item;
+      }),
     },
     { new: true, runValidators: true, context: 'query' },
   );
-  return updatedBasket;
-};
 
-const addFoodToBasket = async (basketId: string, foodId: string) => {
-  const food: any = await FoodModel.findById(foodId);
-  const basket: any = await BasketModel.findById(basketId);
-  if (!food || !basket) return null;
-
-  const foodToAdd = {
-    food: food._id,
-    acquired: false,
-  };
-
-  const updatedBasket = await BasketModel.findByIdAndUpdate(
-    basketId,
-    {
-      foods: basket.foods.some(
-        (f: IBasketItem) => f.food.toString() === food._id.toString(),
-      )
-        ? basket.foods
-        : basket.foods.concat(foodToAdd),
-    },
-    { new: true, runValidators: true, context: 'query' },
-  );
-  return updatedBasket;
-};
-
-const deleteFoodFromBasket = async (basketId: string, foodId: string) => {
-  const food: any = await FoodModel.findById(foodId);
-  const basket: any = await BasketModel.findById(basketId);
-  if (!food || !basket) return null;
-
-  console.log(basket);
-
-  const updatedBasket = await BasketModel.findByIdAndUpdate(
-    basketId,
-    {
-      foods: basket.foods.filter(
-        (f: IBasketItem) => f.food.toString() !== food._id.toString(),
-      ),
-    },
-    { new: true, runValidators: true, context: 'query' },
-  );
-  return updatedBasket;
-};
-
-// Delete all foods from basket
-const clearBasket = async (basketId: string) => {
-  const updatedBasket = await BasketModel.findByIdAndUpdate(
-    basketId,
-    {
-      foods: [],
-    },
-    { new: true, runValidators: true, context: 'query' },
-  );
-  return updatedBasket;
-};
-
-// Delete basket
-const deleteBasket = async (id: string) => {
-  await BasketModel.findByIdAndDelete(id);
+  if (updatedUser !== null) {
+    return updatedUser.basket;
+  }
+  return null;
 };
 
 export default {
-  getBasket,
-  addBasket,
-  toggleFoodAcquired,
-  addFoodToBasket,
-  deleteFoodFromBasket,
-  clearBasket,
-  deleteBasket,
+  addFood,
+  deleteFood,
+  clear,
+  toggleAcquired,
 };

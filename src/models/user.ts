@@ -12,6 +12,7 @@ interface IFood {
 }
 
 interface IBasketFood {
+  _id: Types.ObjectId;
   food: IFood;
   acquired: boolean;
 }
@@ -70,8 +71,17 @@ const UserSchema = new Schema<IUser>({
 });
 
 /* eslint-disable no-param-reassign */
+FoodSchema.set('toJSON', {
+  transform: (_document, returnedObject) => {
+    returnedObject.id = returnedObject._id.toString();
+    delete returnedObject._id;
+    delete returnedObject.__v;
+  },
+});
 UserSchema.set('toJSON', {
   transform: (_document, returnedObject) => {
+    returnedObject.id = returnedObject._id.toString();
+    delete returnedObject._id;
     delete returnedObject.__v;
     delete returnedObject.passwordHash;
   },
