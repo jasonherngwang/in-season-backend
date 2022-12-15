@@ -5,7 +5,7 @@ interface IUser {
   username: string;
   passwordHash: string;
   foods: Types.ObjectId[];
-  baskets: Types.ObjectId[];
+  basket: Types.ObjectId;
 }
 
 const UserSchema = new Schema<IUser>({
@@ -25,12 +25,10 @@ const UserSchema = new Schema<IUser>({
       ref: 'Food',
     },
   ],
-  baskets: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Basket',
-    },
-  ],
+  basket: {
+    type: Schema.Types.ObjectId,
+    ref: 'Basket',
+  },
 });
 
 /* eslint-disable no-param-reassign */

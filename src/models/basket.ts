@@ -2,21 +2,10 @@ import { Schema, model, Types } from 'mongoose';
 
 interface IBasket {
   _id: Types.ObjectId;
-  name: string;
-  owner: Types.ObjectId;
   foods?: Types.ObjectId[];
 }
 
 const BasketSchema = new Schema<IBasket>({
-  name: {
-    type: String,
-    required: true,
-  },
-  owner: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-    required: true,
-  },
   foods: [
     {
       type: Schema.Types.ObjectId,

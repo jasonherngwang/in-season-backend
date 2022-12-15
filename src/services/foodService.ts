@@ -8,13 +8,13 @@ const getFoods = async (): Promise<IFood[]> => {
 };
 
 // Get one
-const getFood = async (id: string): Promise<IFood | null | undefined> => {
+const getFood = async (id: string) => {
   const food = await FoodModel.findById(id);
   return food;
 };
 
 // Create one
-const addFood = async (entry: NewFoodEntry): Promise<IFood> => {
+const addFood = async (entry: NewFoodEntry) => {
   const newFood = new FoodModel({
     name: entry.name,
     category: entry.category,
@@ -34,10 +34,7 @@ const linkFoodToUser = async (food: IFood, user: any) => {
 };
 
 // Update one
-const updateFood = async (
-  id: string,
-  entry: NewFoodEntry,
-): Promise<IFood | null | undefined> => {
+const updateFood = async (id: string, entry: NewFoodEntry) => {
   const updatedFood = FoodModel.findByIdAndUpdate(
     id,
     {

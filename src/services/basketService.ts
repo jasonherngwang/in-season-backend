@@ -1,64 +1,34 @@
 import mongoose from 'mongoose';
 import { FoodModel } from '../models/food';
 import { UserModel } from '../models/user';
-import { IBasket, BasketModel } from '../models/basket';
+import { BasketModel } from '../models/basket';
 
-// Get all baskets for user
-const getBaskets = async (userId: string = ''): Promise<IBasket[]> => {
-  const baskets = await BasketModel.find(
-    userId
-      ? {
-          _id: new mongoose.Types.ObjectId(userId),
-        }
-      : {},
-  );
-  return baskets;
-};
-
-// Get one basket by id
-const getBasket = async (id: string): Promise<IBasket | null | undefined> => {
-  const basket = await BasketModel.findById(id).populate(['foods', 'owner']);
+const getBasket = async (id: string) => {
+  const basket = await BasketModel.findById(id).populate(['foods']);
   return basket;
 };
 
-// Create one basket
-const addBasket = async (userId: string): Promise<IBasket> => {
+// Created for the user upon account creation
+const addBasket = async (userId: string) => {
   const newBasket = new BasketModel({
-    name: 'My Basket',
-    owner: userId,
-  });
-
-  const user: any = await UserModel.findById(userId);
-  await UserModel.findByIdAndUpdate(userId, {
-    baskets: user.baskets.concat(newBasket._id),
+    foods: [],
   });
 
   const addedBasket = await newBasket.save();
+
+  await UserModel.findByIdAndUpdate(userId, {
+    basket: addedBasket._id,
+  });
+
   return addedBasket;
 };
 
 // Update operations
-const renameBasket = async (
-  id: string,
-  newName: string,
-): Promise<IBasket | null | undefined> => {
-  const updatedBasket = BasketModel.findByIdAndUpdate(
-    id,
-    {
-      name: newName,
-    },
-    { new: true, runValidators: true, context: 'query' },
-  );
-
-  return updatedBasket;
-};
-
-const addFoodToBasket = async (
-  basketId: string,
-  foodId: string,
-): Promise<IBasket | null | undefined> => {
+const addFoodToBasket = async (basketId: string, foodId: string) => {
   const food: any = await FoodModel.findById(foodId);
   const basket: any = await BasketModel.findById(basketId);
+  if (!food || !basket) return null;
+
   const updatedBasket = await BasketModel.findByIdAndUpdate(
     basketId,
     {
@@ -71,12 +41,11 @@ const addFoodToBasket = async (
   return updatedBasket;
 };
 
-const deleteFoodFromBasket = async (
-  basketId: string,
-  foodId: string,
-): Promise<IBasket | null | undefined> => {
+const deleteFoodFromBasket = async (basketId: string, foodId: string) => {
   const food: any = await FoodModel.findById(foodId);
   const basket: any = await BasketModel.findById(basketId);
+  if (!food || !basket) return null;
+
   const updatedBasket = await BasketModel.findByIdAndUpdate(
     basketId,
     {
@@ -102,17 +71,15 @@ const clearBasket = async (basketId: string) => {
 };
 
 // Delete basket
-const deleteBasket = async (id: string): Promise<void> => {
+const deleteBasket = async (id: string) => {
   await BasketModel.findByIdAndDelete(id);
 };
 
 export default {
-  getBaskets,
   getBasket,
   addBasket,
   addFoodToBasket,
   deleteFoodFromBasket,
   clearBasket,
-  renameBasket,
   deleteBasket,
 };

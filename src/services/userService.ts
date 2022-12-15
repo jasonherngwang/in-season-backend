@@ -9,7 +9,7 @@ const getUsers = async () => {
 };
 
 const getUser = async (id: string) => {
-  const user = await UserModel.findById(id).populate(['foods', 'baskets']);
+  const user = await UserModel.findById(id).populate(['foods', 'basket']);
   return user;
 };
 

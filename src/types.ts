@@ -24,7 +24,7 @@ export type User = {
   id: string;
   username: string;
   foods: Food[];
-  baskets: Basket[];
+  basket: Basket;
 };
 
 // Provided by user when signing up

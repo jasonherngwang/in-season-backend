@@ -29,13 +29,13 @@ const foodBelongsToUser = async (req: Request, res: Response) => {
   return true;
 };
 
-// Get all (anyone can view all foods)
+// Get all
 foodRouter.get('/', async (_req, res) => {
   const foods = await foodService.getFoods();
   return res.json(foods);
 });
 
-// Get one (anyone can view any food)
+// Get one
 foodRouter.get('/:id', async (req, res) => {
   const food = await foodService.getFood(req.params.id);
 
