@@ -65,6 +65,18 @@ const updateFood = async (
         }
         return food;
       }),
+      basket: user.basket.map((item) => {
+        if (item.food._id.toString() === foodId) {
+          return {
+            food: {
+              ...newData,
+              _id: item.food._id,
+            },
+            _id: item._id,
+          };
+        }
+        return item;
+      }),
     },
     { new: true, runValidators: true, context: 'query' },
   );

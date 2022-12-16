@@ -63,7 +63,7 @@ const clear = async (userId: string) => {
 // Update operations
 const toggleAcquired = async (
   userId: string,
-  foodId: string,
+  basketFoodId: string,
   acquired: boolean,
 ) => {
   const user = await userService.getUser(userId);
@@ -75,7 +75,7 @@ const toggleAcquired = async (
     userId,
     {
       basket: user.basket.map((item) => {
-        if (item._id.toString() === foodId) {
+        if (item._id.toString() === basketFoodId) {
           return {
             food: item.food,
             acquired: acquired,
