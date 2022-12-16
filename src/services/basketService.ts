@@ -33,7 +33,7 @@ const addFood = async (userId: string, foodId: string) => {
 
 const deleteFood = async (userId: string, foodId: string) => {
   const user = await userService.getUser(userId);
-  if (!(user && user.foods)) {
+  if (!(user && user.basket)) {
     throw new ValidationError('user does not exist');
   }
 
@@ -52,7 +52,7 @@ const deleteFood = async (userId: string, foodId: string) => {
 
 const clear = async (userId: string) => {
   const user = await userService.getUser(userId);
-  if (!(user && user.foods)) {
+  if (!(user && user.basket)) {
     throw new ValidationError('user does not exist');
   }
 
@@ -67,7 +67,7 @@ const toggleAcquired = async (
   acquired: boolean,
 ) => {
   const user = await userService.getUser(userId);
-  if (!(user && user.foods)) {
+  if (!(user && user.basket)) {
     throw new ValidationError('user does not exist');
   }
 
@@ -75,10 +75,10 @@ const toggleAcquired = async (
     userId,
     {
       basket: user.basket.map((item) => {
-        if (item.food._id.toString() === foodId) {
+        if (item._id.toString() === foodId) {
           return {
             food: item.food,
-            acquired,
+            acquired: acquired,
           };
         }
         return item;
