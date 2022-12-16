@@ -28,8 +28,12 @@ basketRouter.patch('/delete', async (req: Request, res) => {
     );
   }
 
-  await basketService.deleteFood(user._id.toString(), body.food);
-  return res.status(204).end();
+  const updatedBasket = await basketService.deleteFood(
+    user._id.toString(),
+    body.food,
+  );
+
+  return res.json(updatedBasket);
 });
 
 // Delete all foods from basket

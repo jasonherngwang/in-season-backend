@@ -18,7 +18,7 @@ const addFood = async (userId: string, foodId: string) => {
     (item) => item.food._id.toString() === foodId,
   );
   if (foodInBasket) {
-    throw new ValidationError('food already in basket');
+    return null;
   }
 
   const foodWithId: IBasketFood = {
@@ -27,8 +27,8 @@ const addFood = async (userId: string, foodId: string) => {
     _id: new Types.ObjectId(),
   };
   user.basket.push(foodWithId);
-  await user.save();
-  return foodWithId;
+  const updatedUser = await user.save();
+  return updatedUser.basket;
 };
 
 const deleteFood = async (userId: string, foodId: string) => {
@@ -37,13 +37,17 @@ const deleteFood = async (userId: string, foodId: string) => {
     throw new ValidationError('user does not exist');
   }
 
-  await UserModel.findByIdAndUpdate(
+  const updatedUser = await UserModel.findByIdAndUpdate(
     userId,
     {
       basket: user.basket.filter((item) => item.food._id.toString() !== foodId),
     },
     { new: true, runValidators: true, context: 'query' },
   );
+  if (updatedUser) {
+    return updatedUser.basket;
+  }
+  return null;
 };
 
 const clear = async (userId: string) => {
@@ -83,7 +87,7 @@ const toggleAcquired = async (
     { new: true, runValidators: true, context: 'query' },
   );
 
-  if (updatedUser !== null) {
+  if (updatedUser) {
     return updatedUser.basket;
   }
   return null;

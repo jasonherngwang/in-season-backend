@@ -45,7 +45,7 @@ const FoodSchema = new Schema<IFood>({
 });
 
 // Basket items can be marked as acquired during a shopping trip
-const BasketFood = new Schema<IBasketFood>({
+const BasketFoodSchema = new Schema<IBasketFood>({
   food: FoodSchema,
   acquired: {
     type: Boolean,
@@ -67,7 +67,7 @@ const UserSchema = new Schema<IUser>({
     minLength: 1,
   },
   foods: [FoodSchema],
-  basket: [BasketFood],
+  basket: [BasketFoodSchema],
 });
 
 /* eslint-disable no-param-reassign */
@@ -78,6 +78,15 @@ FoodSchema.set('toJSON', {
     delete returnedObject.__v;
   },
 });
+
+BasketFoodSchema.set('toJSON', {
+  transform: (_document, returnedObject) => {
+    returnedObject.id = returnedObject._id.toString();
+    delete returnedObject._id;
+    delete returnedObject.__v;
+  },
+});
+
 UserSchema.set('toJSON', {
   transform: (_document, returnedObject) => {
     returnedObject.id = returnedObject._id.toString();
