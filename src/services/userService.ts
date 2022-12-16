@@ -9,6 +9,11 @@ const getUser = async (id: string) => {
   return user;
 };
 
+const getTrialUser = async () => {
+  const user = await UserModel.findOne({ username: 'trial' });
+  return user;
+};
+
 const addUser = async (entry: NewUserEntry) => {
   const { username, password } = entry;
 
@@ -39,11 +44,13 @@ const addUser = async (entry: NewUserEntry) => {
 };
 
 const deleteUser = async (id: string) => {
+  console.log('deleting');
   await UserModel.findByIdAndDelete(id);
 };
 
 export default {
   getUser,
+  getTrialUser,
   addUser,
   deleteUser,
 };

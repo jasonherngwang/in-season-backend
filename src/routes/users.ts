@@ -17,6 +17,13 @@ userRouter.get('/', async (req: Request, res) => {
   return res.json(existingUser);
 });
 
+// Returns data from the immutable "trial" user account.
+userRouter.get('/trial', async (_req, res) => {
+  const trialUser = await userService.getTrialUser();
+  console.log(trialUser);
+  return res.json(trialUser);
+});
+
 userRouter.post('/', async (req, res) => {
   // Validate username and password input format; ValidationError may be thrown
   const newUserEntry = toNewUserEntry(req.body);

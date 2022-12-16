@@ -42,7 +42,7 @@ const addFood = async (userId: string, newFood: NewFoodEntry) => {
   return foodWithId;
 };
 
-// Update one
+// Update one in both user account and basket
 const updateFood = async (
   userId: string,
   foodId: string,

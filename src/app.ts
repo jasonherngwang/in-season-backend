@@ -12,8 +12,6 @@ import loginRouter from './routes/login';
 import middleware from './utils/middleware';
 import logger from './utils/logger';
 
-// import setupDb from '../data/setupDb';
-
 const app: Application = express();
 app.use(cors());
 app.use(express.json());
@@ -31,9 +29,6 @@ mongoose
   .catch((error) => {
     logger.error('Error connecting to MongoDB:', error.message);
   });
-
-// Seeding
-// setupDb();
 
 app.use('/api/foods', foodRouter, imageUploadRouter);
 app.use('/api/users', userRouter);
