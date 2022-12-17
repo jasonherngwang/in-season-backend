@@ -13,7 +13,7 @@ import middleware from './utils/middleware';
 import logger from './utils/logger';
 
 const app: Application = express();
-app.use(cors());
+app.use(cors({ origin: config.CLIENT_ORIGIN || 'http://localhost:8081' }));
 app.use(express.json());
 app.use(middleware.requestLogger);
 app.use(middleware.tokenExtractor);
@@ -21,6 +21,7 @@ app.use(middleware.userExtractor);
 
 console.log('Connecting to', config.MONGODB_URI);
 
+mongoose.set('strictQuery', false);
 mongoose
   .connect(config.MONGODB_URI ?? '')
   .then(() => {
