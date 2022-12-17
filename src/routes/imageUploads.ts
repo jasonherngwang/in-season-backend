@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import multer from 'multer';
 import { S3 } from 'aws-sdk';
+import url from 'url';
 import { v4 as uuidv4 } from 'uuid';
 import config from '../utils/config';
 import { AuthenticationError, UploadError } from '../utils/errors';
@@ -49,9 +50,6 @@ imageUploadRouter.post(
   async (req: Request, res: Response) => {
     const { file, user } = req;
 
-    console.log(file);
-    console.log(user);
-
     if (!user) {
       throw new AuthenticationError('must be logged in to modify food');
     }
@@ -73,18 +71,22 @@ imageUploadRouter.post(
     };
 
     const result = await s3
-      .upload(params, (err, data) => {
+      .upload(params, (err) => {
         if (err) {
           return res.status(500).send(err);
         }
-        // Return the URL of the uploaded image
-        return res.send(data.Location);
+        return;
       })
       .promise();
 
+    // Convert S3 URL to CloudFront URL
+    const cloudfrontUrl = `${config.CLOUDFRONT_DISTRIBUTION_URL}${
+      url.parse(result.Location).path
+    }`;
+
     return res.json({
       message: 'File uploaded successfully',
-      imageUrl: result.Location,
+      imageUrl: cloudfrontUrl,
     });
   },
 );
