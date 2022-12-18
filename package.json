@@ -7,7 +7,8 @@
     "build": "tsc -p tsconfig.build.json",
     "start": "NODE_ENV=production node build/index.js",
     "dev": "NODE_ENV=development ts-node-dev src/index.ts",
-    "test": "NODE_ENV=test jest --verbose --runInBand --forceExit"
+    "test": "NODE_ENV=test jest --verbose --runInBand --forceExit",
+    "start:test": "NODE_ENV=test ts-node-dev src/index.ts"
   },
   "author": "Jason Wang",
   "license": "ISC",

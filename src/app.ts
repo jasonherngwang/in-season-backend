@@ -8,6 +8,7 @@ import imageUploadRouter from './routes/imageUpload';
 import userRouter from './routes/users';
 import basketRouter from './routes/baskets';
 import loginRouter from './routes/login';
+import testingRouter from './routes/testing';
 
 import middleware from './utils/middleware';
 import logger from './utils/logger';
@@ -35,6 +36,11 @@ app.use('/api/foods', foodRouter, imageUploadRouter);
 app.use('/api/users', userRouter);
 app.use('/api/basket', basketRouter);
 app.use('/api/login', loginRouter);
+
+// Enable tests to wipe the database
+if (process.env.NODE_ENV === 'test') {
+  app.use('/api/testing', testingRouter);
+}
 
 app.use(middleware.unknownEndpoint);
 app.use(middleware.errorHandler);

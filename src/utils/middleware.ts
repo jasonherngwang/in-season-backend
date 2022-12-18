@@ -5,7 +5,7 @@ import logger from './logger';
 import { UserModel } from '../models/user';
 import { AuthenticationError } from './errors';
 
-morgan.token('body', (req: any) => {
+morgan.token('body', (req: Request) => {
   const isPostOrPut = ['POST', 'PUT'].includes(req.method)
     ? JSON.stringify(req.body)
     : '';
