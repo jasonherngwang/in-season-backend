@@ -1,6 +1,6 @@
 import express, { Request } from 'express';
 import foodService from '../services/foodService';
-import { toNewFoodEntry } from '../utils/requestProcessor';
+import { toNewFoodEntry } from '../utils/validators';
 import { AuthenticationError } from '../utils/errors';
 
 const foodRouter = express.Router();

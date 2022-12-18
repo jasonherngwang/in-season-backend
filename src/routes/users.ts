@@ -1,6 +1,6 @@
 import express, { Request } from 'express';
 import userService from '../services/userService';
-import { toNewUserEntry } from '../utils/requestProcessor';
+import { toNewUserEntry } from '../utils/validators';
 import { AuthenticationError } from '../utils/errors';
 
 const userRouter = express.Router();

@@ -99,5 +99,4 @@ UserSchema.set('toJSON', {
 
 const UserModel = model('User', UserSchema);
 
-// eslint-disable-next-line object-curly-newline
 export { IFood, IBasketFood, IUser, UserModel };
