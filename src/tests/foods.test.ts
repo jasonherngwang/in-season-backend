@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import app from '../app';
 import request from 'supertest';
-import { UserModel } from '../models/user';
+import { UserModel, IFood } from '../models/user';
 import helper from './helper';
 
 describe('when the user has no foods', () => {
@@ -124,6 +124,29 @@ describe('when the user has some foods', () => {
       .delete(`/api/foods/${foodId}`)
       .expect(401);
     expect(response.body.error).toContain('must be logged in');
+  });
+});
+
+// Seed data
+describe('when creating a user', () => {
+  beforeEach(async () => {
+    await UserModel.deleteMany({});
+  });
+
+  test('user is created with all seed foods', async () => {
+    const response = await request(app)
+      .post('/api/users')
+      .send(helper.testUserCredentials);
+
+    expect(response.body.foods).toHaveLength(68);
+    expect(
+      response.body.foods.find((food: IFood) => food.name === 'Mango'),
+    ).toBeDefined();
+    expect(
+      response.body.foods.find(
+        (food: IFood) => food.name === 'NonExistentFood',
+      ),
+    ).not.toBeDefined();
   });
 });
 
