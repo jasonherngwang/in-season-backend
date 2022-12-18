@@ -20,7 +20,6 @@ userRouter.get('/', async (req: Request, res) => {
 // Returns data from the immutable "trial" user account.
 userRouter.get('/trial', async (_req, res) => {
   const trialUser = await userService.getTrialUser();
-  console.log(trialUser);
   return res.json(trialUser);
 });
 

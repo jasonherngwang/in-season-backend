@@ -41,7 +41,7 @@ basketRouter.patch('/clear', async (req: Request, res) => {
   const { user } = req;
   if (!user) {
     throw new AuthenticationError(
-      'must be logged in to delete food from basket',
+      'must be logged in to clear foods from basket',
     );
   }
 
@@ -58,7 +58,7 @@ basketRouter.patch('/toggle', async (req: Request, res) => {
 
   const updatedBasket = await basketService.toggleAcquired(
     user._id.toString(),
-    body.food,
+    body.basketFood,
     body.acquired,
   );
 

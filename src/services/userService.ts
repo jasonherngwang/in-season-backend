@@ -44,7 +44,6 @@ const addUser = async (entry: NewUserEntry) => {
 };
 
 const deleteUser = async (id: string) => {
-  console.log('deleting');
   await UserModel.findByIdAndDelete(id);
 };
 

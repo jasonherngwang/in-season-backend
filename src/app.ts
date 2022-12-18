@@ -4,7 +4,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import config from './utils/config';
 import foodRouter from './routes/foods';
-import imageUploadRouter from './routes/imageUploads';
+import imageUploadRouter from './routes/imageUpload';
 import userRouter from './routes/users';
 import basketRouter from './routes/baskets';
 import loginRouter from './routes/login';
