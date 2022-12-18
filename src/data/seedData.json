@@ -3,7 +3,7 @@
     "name": "Apple",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/apple.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/apple.webp",
     "months": {
       "0": true,
       "1": false,
@@ -23,7 +23,7 @@
     "name": "Apricot",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/apricot.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/apricot.webp",
     "months": {
       "0": false,
       "1": false,
@@ -43,7 +43,7 @@
     "name": "Artichoke",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/artichoke.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/artichoke.webp",
     "months": {
       "0": true,
       "1": true,
@@ -63,7 +63,7 @@
     "name": "Arugula",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/arugula.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/arugula.webp",
     "months": {
       "0": false,
       "1": false,
@@ -83,7 +83,7 @@
     "name": "Asparagus",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/asparagus.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/asparagus.webp",
     "months": {
       "0": false,
       "1": false,
@@ -103,7 +103,7 @@
     "name": "Avocado",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/avocado.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/avocado.webp",
     "months": {
       "0": false,
       "1": false,
@@ -123,7 +123,7 @@
     "name": "Banana",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/banana.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/banana.webp",
     "months": {
       "0": false,
       "1": false,
@@ -143,7 +143,7 @@
     "name": "Basil",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/basil.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/basil.webp",
     "months": {
       "0": false,
       "1": false,
@@ -163,7 +163,7 @@
     "name": "Beans",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/beans.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/beans.webp",
     "months": {
       "0": false,
       "1": false,
@@ -183,7 +183,7 @@
     "name": "Beet",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/beet.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/beet.webp",
     "months": {
       "0": true,
       "1": true,
@@ -203,7 +203,7 @@
     "name": "Blackberry",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/blackberry.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/blackberry.webp",
     "months": {
       "0": false,
       "1": false,
@@ -223,7 +223,7 @@
     "name": "Blueberry",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/blueberry.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/blueberry.webp",
     "months": {
       "0": false,
       "1": false,
@@ -243,7 +243,7 @@
     "name": "Broccoli",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/broccoli.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/broccoli.webp",
     "months": {
       "0": true,
       "1": true,
@@ -263,7 +263,7 @@
     "name": "Brussels Sprout",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/brussels_sprout.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/brussels_sprout.webp",
     "months": {
       "0": true,
       "1": true,
@@ -283,7 +283,7 @@
     "name": "Carrot",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/carrot.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/carrot.webp",
     "months": {
       "0": true,
       "1": true,
@@ -303,7 +303,7 @@
     "name": "Cauliflower",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/cauliflower.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/cauliflower.webp",
     "months": {
       "0": true,
       "1": true,
@@ -323,7 +323,7 @@
     "name": "Celery",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/celery.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/celery.webp",
     "months": {
       "0": true,
       "1": true,
@@ -343,7 +343,7 @@
     "name": "Cherry",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/cherry.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/cherry.webp",
     "months": {
       "0": false,
       "1": false,
@@ -363,7 +363,7 @@
     "name": "Chili",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/chili.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/chili.webp",
     "months": {
       "0": false,
       "1": false,
@@ -383,7 +383,7 @@
     "name": "Cilantro",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/cilantro.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/cilantro.webp",
     "months": {
       "0": true,
       "1": true,
@@ -403,7 +403,7 @@
     "name": "Corn",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/corn.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/corn.webp",
     "months": {
       "0": false,
       "1": false,
@@ -423,7 +423,7 @@
     "name": "Cucumber",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/cucumber.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/cucumber.webp",
     "months": {
       "0": false,
       "1": false,
@@ -443,7 +443,7 @@
     "name": "Date",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/date.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/date.webp",
     "months": {
       "0": false,
       "1": false,
@@ -463,7 +463,7 @@
     "name": "Dragonfruit",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/dragonfruit.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/dragonfruit.webp",
     "months": {
       "0": false,
       "1": false,
@@ -483,7 +483,7 @@
     "name": "Durian",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/durian.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/durian.webp",
     "months": {
       "0": false,
       "1": false,
@@ -503,7 +503,7 @@
     "name": "Eggplant",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/eggplant.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/eggplant.webp",
     "months": {
       "0": false,
       "1": false,
@@ -523,7 +523,7 @@
     "name": "Fennel",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/fennel.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/fennel.webp",
     "months": {
       "0": true,
       "1": true,
@@ -543,7 +543,7 @@
     "name": "Fig",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/fig.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/fig.webp",
     "months": {
       "0": false,
       "1": false,
@@ -563,7 +563,7 @@
     "name": "Grapefruit",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/grapefruit.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/grapefruit.webp",
     "months": {
       "0": true,
       "1": true,
@@ -583,7 +583,7 @@
     "name": "Grapes",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/grapes.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/grapes.webp",
     "months": {
       "0": true,
       "1": false,
@@ -603,7 +603,7 @@
     "name": "Green Cabbage",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/green_cabbage.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/green_cabbage.webp",
     "months": {
       "0": true,
       "1": true,
@@ -623,7 +623,7 @@
     "name": "Guava",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/guava.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/guava.webp",
     "months": {
       "0": true,
       "1": true,
@@ -643,7 +643,7 @@
     "name": "Jicama",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/jicama.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/jicama.webp",
     "months": {
       "0": false,
       "1": false,
@@ -663,7 +663,7 @@
     "name": "Kiwi",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/kiwi.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/kiwi.webp",
     "months": {
       "0": true,
       "1": true,
@@ -683,7 +683,7 @@
     "name": "Lemon",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/lemon.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/lemon.webp",
     "months": {
       "0": true,
       "1": true,
@@ -703,7 +703,7 @@
     "name": "Lime",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/lime.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/lime.webp",
     "months": {
       "0": true,
       "1": true,
@@ -723,7 +723,7 @@
     "name": "Mango",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/mango.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/mango.webp",
     "months": {
       "0": false,
       "1": false,
@@ -743,7 +743,7 @@
     "name": "Mangosteen",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/mangosteen.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/mangosteen.webp",
     "months": {
       "0": false,
       "1": false,
@@ -763,7 +763,7 @@
     "name": "Melon",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/melon.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/melon.webp",
     "months": {
       "0": false,
       "1": false,
@@ -783,7 +783,7 @@
     "name": "Mushroom",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/mushroom.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/mushroom.webp",
     "months": {
       "0": true,
       "1": true,
@@ -803,7 +803,7 @@
     "name": "Napa Cabbage",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/napa_cabbage.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/napa_cabbage.webp",
     "months": {
       "0": true,
       "1": true,
@@ -823,7 +823,7 @@
     "name": "Olive",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/olive.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/olive.webp",
     "months": {
       "0": true,
       "1": true,
@@ -843,7 +843,7 @@
     "name": "Onion",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/onion.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/onion.webp",
     "months": {
       "0": true,
       "1": true,
@@ -863,7 +863,7 @@
     "name": "Orange",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/orange.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/orange.webp",
     "months": {
       "0": true,
       "1": true,
@@ -883,7 +883,7 @@
     "name": "Papaya",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/papaya.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/papaya.webp",
     "months": {
       "0": false,
       "1": true,
@@ -903,7 +903,7 @@
     "name": "Parsley",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/parsley.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/parsley.webp",
     "months": {
       "0": true,
       "1": true,
@@ -923,7 +923,7 @@
     "name": "Peach",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/peach.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/peach.webp",
     "months": {
       "0": false,
       "1": false,
@@ -943,7 +943,7 @@
     "name": "Pear",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/pear.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/pear.webp",
     "months": {
       "0": false,
       "1": false,
@@ -963,7 +963,7 @@
     "name": "Peas",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/peas.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/peas.webp",
     "months": {
       "0": false,
       "1": false,
@@ -983,7 +983,7 @@
     "name": "Pepper",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/pepper.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/pepper.webp",
     "months": {
       "0": false,
       "1": false,
@@ -1003,7 +1003,7 @@
     "name": "Persimmon",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/persimmon.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/persimmon.webp",
     "months": {
       "0": false,
       "1": false,
@@ -1023,7 +1023,7 @@
     "name": "Pineapple",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/pineapple.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/pineapple.webp",
     "months": {
       "0": false,
       "1": false,
@@ -1043,7 +1043,7 @@
     "name": "Plum",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/plum.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/plum.webp",
     "months": {
       "0": false,
       "1": false,
@@ -1063,7 +1063,7 @@
     "name": "Pomegranate",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/pomegranate.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/pomegranate.webp",
     "months": {
       "0": false,
       "1": false,
@@ -1083,7 +1083,7 @@
     "name": "Potato",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/potato.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/potato.webp",
     "months": {
       "0": true,
       "1": true,
@@ -1103,7 +1103,7 @@
     "name": "Pumpkin",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/pumpkin.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/pumpkin.webp",
     "months": {
       "0": false,
       "1": false,
@@ -1123,7 +1123,7 @@
     "name": "Radicchio",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/radicchio.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/radicchio.webp",
     "months": {
       "0": true,
       "1": true,
@@ -1143,7 +1143,7 @@
     "name": "Radish",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/radish.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/radish.webp",
     "months": {
       "0": true,
       "1": true,
@@ -1163,7 +1163,7 @@
     "name": "Raspberry",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/raspberry.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/raspberry.webp",
     "months": {
       "0": false,
       "1": false,
@@ -1183,7 +1183,7 @@
     "name": "Spinach",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/spinach.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/spinach.webp",
     "months": {
       "0": true,
       "1": true,
@@ -1203,7 +1203,7 @@
     "name": "Starfruit",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/starfruit.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/starfruit.webp",
     "months": {
       "0": false,
       "1": false,
@@ -1223,7 +1223,7 @@
     "name": "Strawberry",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/strawberry.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/strawberry.webp",
     "months": {
       "0": true,
       "1": true,
@@ -1243,7 +1243,7 @@
     "name": "Tangerine",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/tangerine.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/tangerine.webp",
     "months": {
       "0": true,
       "1": true,
@@ -1263,7 +1263,7 @@
     "name": "Thyme",
     "category": "other",
     "description": "",
-    "imageUrl": "images/thyme.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/thyme.webp",
     "months": {
       "0": true,
       "1": true,
@@ -1283,7 +1283,7 @@
     "name": "Tomato",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/tomato.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/tomato.webp",
     "months": {
       "0": false,
       "1": false,
@@ -1303,7 +1303,7 @@
     "name": "Turnip",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/turnip.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/turnip.webp",
     "months": {
       "0": true,
       "1": true,
@@ -1323,7 +1323,7 @@
     "name": "Watermelon",
     "category": "fruit",
     "description": "",
-    "imageUrl": "images/watermelon.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/watermelon.webp",
     "months": {
       "0": false,
       "1": false,
@@ -1343,7 +1343,7 @@
     "name": "Zucchini",
     "category": "vegetable",
     "description": "",
-    "imageUrl": "images/zucchini.webp",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/zucchini.webp",
     "months": {
       "0": false,
       "1": false,

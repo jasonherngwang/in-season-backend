@@ -1,9 +1,20 @@
 
 // Select the database to use.
-use('in-season');
+use('in-season-test');
+// db.createCollection('users')
 
-db.users.insertMany([
-  {
+db.createUser({
+	user: "test-user",
+  pwd: "papaya",
+	roles: [
+		{role: "readWrite", db: "in-season-test"}
+	]
+})
+
+db.users.insert({
+  username: "test-user",
+  passwordHash: "$2b$10$bdoipFkRIdALaoD/N8/UIOF9pH.fmrL3EADIyGNDiqzj4GFba0TjW",
+  foods: {
     "name": "Apple",
     "category": "fruit",
     "description": "",
@@ -23,7 +34,7 @@ db.users.insertMany([
       "11": true
     }
   }
-])
+})
 
 // The drop() command destroys all data from a collection.
 // Make sure you run it against the correct database and collection.

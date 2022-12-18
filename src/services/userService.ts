@@ -30,7 +30,7 @@ const addUser = async (entry: NewUserEntry) => {
 
   // Make a copy of the "core" foods for the user
   const foods: NewFoodEntry[] = JSON.parse(
-    fs.readFileSync(`${__dirname}/../../data/seedData.json`, 'utf-8'),
+    fs.readFileSync(`${__dirname}/../data/seedData.json`, 'utf-8'),
   );
 
   const newUser = new UserModel({

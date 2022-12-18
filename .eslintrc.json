@@ -2,7 +2,8 @@
   "env": {
     "browser": true,
     "commonjs": true,
-    "es2021": true
+    "es2021": true,
+    "jest/globals": true
   },
   "extends": [
     "airbnb-base",
@@ -15,12 +16,11 @@
   },
   "plugins": ["@typescript-eslint"],
   "rules": {
-    // "no-console": "off",
     "implicit-arrow-linebreak": "off",
     "operator-linebreak": "off",
     "max-classes-per-file": "off",
     "no-underscore-dangle": "off",
-    "object-curly-newline": 'off',
+    "object-curly-newline": "off",
     "@typescript-eslint/indent": "off",
     "@typescript-eslint/semi": ["error"],
     "@typescript-eslint/explicit-function-return-type": "off",

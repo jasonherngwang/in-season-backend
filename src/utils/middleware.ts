@@ -34,7 +34,7 @@ const userExtractor: RequestHandler = async (req: Request, _res, next) => {
   if (req.token) {
     const decodedToken = jwt.verify(
       req.token,
-      process.env.SECRET as string,
+      process.env.JWT_SECRET as string,
     ) as JwtPayload;
 
     if (!decodedToken.id) {
