@@ -4,6 +4,6 @@ import app from './app';
 
 const server = http.createServer(app);
 
-server.listen(config.NODE_DOCKER_PORT || 8080, () => {
-  console.log(`Server running on port ${config.NODE_DOCKER_PORT}`);
+server.listen(config.NODE_INTERNAL_PORT || 8080, () => {
+  console.log(`Server running on port ${config.NODE_INTERNAL_PORT}`);
 });

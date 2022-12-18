@@ -13,7 +13,7 @@ import middleware from './utils/middleware';
 import logger from './utils/logger';
 
 const app: Application = express();
-app.use(cors({ origin: config.CLIENT_ORIGIN || 'http://localhost:8081' }));
+app.use(cors());
 app.use(express.json());
 app.use(middleware.requestLogger);
 app.use(middleware.tokenExtractor);

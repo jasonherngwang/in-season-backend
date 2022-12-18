@@ -1,1 +1,1362 @@
-[{"name":"Apple","category":"fruit","description":"","imageUrl":"images/apple.webp","months":{"0":true,"1":false,"2":false,"3":false,"4":false,"5":false,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true}},{"name":"Apricot","category":"fruit","description":"","imageUrl":"images/apricot.webp","months":{"0":false,"1":false,"2":true,"3":true,"4":true,"5":true,"6":false,"7":false,"8":false,"9":false,"10":false,"11":false}},{"name":"Artichoke","category":"vegetable","description":"","imageUrl":"images/artichoke.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true}},{"name":"Arugula","category":"vegetable","description":"","imageUrl":"images/arugula.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"8":false,"9":false,"10":true,"11":true}},{"name":"Asparagus","category":"vegetable","description":"","imageUrl":"images/asparagus.webp","months":{"0":false,"1":false,"2":true,"3":true,"4":true,"5":true,"6":false,"7":false,"8":false,"9":false,"10":false,"11":false}},{"name":"Avocado","category":"fruit","description":"","imageUrl":"images/avocado.webp","months":{"0":false,"1":false,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":false,"10":false,"11":false}},{"name":"Banana","category":"fruit","description":"","imageUrl":"images/banana.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"8":false,"9":false,"10":false,"11":false}},{"name":"Basil","category":"vegetable","description":"","imageUrl":"images/basil.webp","months":{"0":false,"1":false,"2":false,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true}},{"name":"Beans","category":"vegetable","description":"","imageUrl":"images/beans.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":false,"5":true,"6":true,"7":true,"8":true,"9":true,"10":false,"11":false}},{"name":"Beet","category":"vegetable","description":"","imageUrl":"images/beet.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true}},{"name":"Blackberry","category":"fruit","description":"","imageUrl":"images/blackberry.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":false,"5":true,"6":true,"7":true,"8":false,"9":false,"10":false,"11":false}},{"name":"Blueberry","category":"fruit","description":"","imageUrl":"images/blueberry.webp","months":{"0":false,"1":false,"2":false,"3":true,"4":true,"5":true,"6":true,"7":false,"8":false,"9":false,"10":false,"11":false}},{"name":"Broccoli","category":"vegetable","description":"","imageUrl":"images/broccoli.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true}},{"name":"Brussels Sprout","category":"vegetable","description":"","imageUrl":"images/brussels_sprout.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":false,"6":false,"7":false,"8":true,"9":true,"10":true,"11":true}},{"name":"Carrot","category":"vegetable","description":"","imageUrl":"images/carrot.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true}},{"name":"Cauliflower","category":"vegetable","description":"","imageUrl":"images/cauliflower.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true}},{"name":"Celery","category":"vegetable","description":"","imageUrl":"images/celery.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":false,"7":false,"8":false,"9":false,"10":true,"11":true}},{"name":"Cherry","category":"fruit","description":"","imageUrl":"images/cherry.webp","months":{"0":false,"1":false,"2":false,"3":true,"4":true,"5":true,"6":false,"7":false,"8":false,"9":false,"10":false,"11":false}},{"name":"Chili","category":"vegetable","description":"","imageUrl":"images/chili.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true}},{"name":"Cilantro","category":"vegetable","description":"","imageUrl":"images/cilantro.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true}},{"name":"Corn","category":"vegetable","description":"","imageUrl":"images/corn.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":false,"11":false}},{"name":"Cucumber","category":"vegetable","description":"","imageUrl":"images/cucumber.webp","months":{"0":false,"1":false,"2":false,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":false}},{"name":"Date","category":"fruit","description":"","imageUrl":"images/date.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"8":true,"9":true,"10":true,"11":true}},{"name":"Dragonfruit","category":"fruit","description":"","imageUrl":"images/dragonfruit.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"8":false,"9":false,"10":false,"11":false}},{"name":"Durian","category":"fruit","description":"","imageUrl":"images/durian.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"8":false,"9":false,"10":false,"11":false}},{"name":"Eggplant","category":"vegetable","description":"","imageUrl":"images/eggplant.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":false,"5":true,"6":true,"7":true,"8":true,"9":false,"10":false,"11":false}},{"name":"Fennel","category":"vegetable","description":"","imageUrl":"images/fennel.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true}},{"name":"Fig","category":"fruit","description":"","imageUrl":"images/fig.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":false}},{"name":"Grapefruit","category":"fruit","description":"","imageUrl":"images/grapefruit.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":false,"5":false,"6":false,"7":false,"8":false,"9":true,"10":true,"11":true}},{"name":"Grapes","category":"fruit","description":"","imageUrl":"images/grapes.webp","months":{"0":true,"1":false,"2":false,"3":false,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true}},{"name":"Green Cabbage","category":"vegetable","description":"","imageUrl":"images/green_cabbage.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":false,"7":false,"8":false,"9":false,"10":true,"11":true}},{"name":"Guava","category":"fruit","description":"","imageUrl":"images/guava.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true}},{"name":"Jicama","category":"vegetable","description":"","imageUrl":"images/jicama.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"8":false,"9":false,"10":false,"11":false}},{"name":"Kiwi","category":"fruit","description":"","imageUrl":"images/kiwi.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":false,"6":false,"7":false,"8":false,"9":true,"10":true,"11":true}},{"name":"Lemon","category":"fruit","description":"","imageUrl":"images/lemon.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true}},{"name":"Lime","category":"fruit","description":"","imageUrl":"images/lime.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":false,"5":false,"6":false,"7":false,"8":false,"9":true,"10":true,"11":true}},{"name":"Mango","category":"fruit","description":"","imageUrl":"images/mango.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":false,"5":true,"6":true,"7":true,"8":false,"9":false,"10":false,"11":false}},{"name":"Mangosteen","category":"fruit","description":"","imageUrl":"images/mangosteen.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"8":false,"9":false,"10":false,"11":false}},{"name":"Melon","category":"fruit","description":"","imageUrl":"images/melon.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":false,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":false}},{"name":"Mushroom","category":"vegetable","description":"","imageUrl":"images/mushroom.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true}},{"name":"Napa Cabbage","category":"vegetable","description":"","imageUrl":"images/napa_cabbage.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":false,"7":false,"8":false,"9":false,"10":true,"11":true}},{"name":"Olive","category":"fruit","description":"","imageUrl":"images/olive.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true}},{"name":"Onion","category":"vegetable","description":"","imageUrl":"images/onion.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true}},{"name":"Orange","category":"fruit","description":"","imageUrl":"images/orange.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true}},{"name":"Papaya","category":"fruit","description":"","imageUrl":"images/papaya.webp","months":{"0":false,"1":true,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":false}},{"name":"Parsley","category":"vegetable","description":"","imageUrl":"images/parsley.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true}},{"name":"Peach","category":"fruit","description":"","imageUrl":"images/peach.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":true,"5":true,"6":true,"7":true,"8":true,"9":false,"10":false,"11":false}},{"name":"Pear","category":"fruit","description":"","imageUrl":"images/pear.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":false,"5":false,"6":true,"7":true,"8":true,"9":true,"10":true,"11":false}},{"name":"Peas","category":"vegetable","description":"","imageUrl":"images/peas.webp","months":{"0":false,"1":false,"2":false,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":false}},{"name":"Pepper","category":"vegetable","description":"","imageUrl":"images/pepper.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true}},{"name":"Persimmon","category":"fruit","description":"","imageUrl":"images/persimmon.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"8":false,"9":true,"10":true,"11":true}},{"name":"Pineapple","category":"fruit","description":"","imageUrl":"images/pineapple.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"8":false,"9":false,"10":false,"11":false}},{"name":"Plum","category":"fruit","description":"","imageUrl":"images/plum.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":true,"5":true,"6":true,"7":true,"8":true,"9":false,"10":false,"11":false}},{"name":"Pomegranate","category":"fruit","description":"","imageUrl":"images/pomegranate.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"8":true,"9":true,"10":true,"11":true}},{"name":"Potato","category":"vegetable","description":"","imageUrl":"images/potato.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true}},{"name":"Pumpkin","category":"vegetable","description":"","imageUrl":"images/pumpkin.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"8":true,"9":true,"10":true,"11":false}},{"name":"Radicchio","category":"vegetable","description":"","imageUrl":"images/radicchio.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":false,"6":false,"7":false,"8":false,"9":true,"10":true,"11":true}},{"name":"Radish","category":"vegetable","description":"","imageUrl":"images/radish.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":false,"6":false,"7":false,"8":false,"9":true,"10":true,"11":true}},{"name":"Raspberry","category":"fruit","description":"","imageUrl":"images/raspberry.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":false}},{"name":"Spinach","category":"vegetable","description":"","imageUrl":"images/spinach.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":false,"7":false,"8":false,"9":true,"10":true,"11":true}},{"name":"Starfruit","category":"fruit","description":"","imageUrl":"images/starfruit.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":false,"5":false,"6":false,"7":false,"8":false,"9":false,"10":false,"11":false}},{"name":"Strawberry","category":"fruit","description":"","imageUrl":"images/strawberry.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"8":false,"9":false,"10":false,"11":false}},{"name":"Tangerine","category":"fruit","description":"","imageUrl":"images/tangerine.webp","months":{"0":true,"1":true,"2":true,"3":false,"4":false,"5":false,"6":false,"7":false,"8":true,"9":true,"10":true,"11":true}},{"name":"Thyme","category":"other","description":"","imageUrl":"images/thyme.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true}},{"name":"Tomato","category":"vegetable","description":"","imageUrl":"images/tomato.webp","months":{"0":false,"1":false,"2":false,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true}},{"name":"Turnip","category":"vegetable","description":"","imageUrl":"images/turnip.webp","months":{"0":true,"1":true,"2":true,"3":true,"4":false,"5":false,"6":false,"7":false,"8":false,"9":false,"10":true,"11":true}},{"name":"Watermelon","category":"fruit","description":"","imageUrl":"images/watermelon.webp","months":{"0":false,"1":false,"2":false,"3":false,"4":false,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":false}},{"name":"Zucchini","category":"vegetable","description":"","imageUrl":"images/zucchini.webp","months":{"0":false,"1":false,"2":false,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":false}}]
+[
+  {
+    "name": "Apple",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/apple.webp",
+    "months": {
+      "0": true,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": false,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Apricot",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/apricot.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": false,
+      "10": false,
+      "11": false
+    }
+  },
+  {
+    "name": "Artichoke",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/artichoke.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Arugula",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/arugula.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": false,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": false,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Asparagus",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/asparagus.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": false,
+      "10": false,
+      "11": false
+    }
+  },
+  {
+    "name": "Avocado",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/avocado.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": false,
+      "10": false,
+      "11": false
+    }
+  },
+  {
+    "name": "Banana",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/banana.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": false,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": false,
+      "10": false,
+      "11": false
+    }
+  },
+  {
+    "name": "Basil",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/basil.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Beans",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/beans.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": false,
+      "11": false
+    }
+  },
+  {
+    "name": "Beet",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/beet.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Blackberry",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/blackberry.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": false,
+      "9": false,
+      "10": false,
+      "11": false
+    }
+  },
+  {
+    "name": "Blueberry",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/blueberry.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": false,
+      "8": false,
+      "9": false,
+      "10": false,
+      "11": false
+    }
+  },
+  {
+    "name": "Broccoli",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/broccoli.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Brussels Sprout",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/brussels_sprout.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": false,
+      "6": false,
+      "7": false,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Carrot",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/carrot.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Cauliflower",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/cauliflower.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Celery",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/celery.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": false,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Cherry",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/cherry.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": false,
+      "10": false,
+      "11": false
+    }
+  },
+  {
+    "name": "Chili",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/chili.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Cilantro",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/cilantro.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Corn",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/corn.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": false,
+      "11": false
+    }
+  },
+  {
+    "name": "Cucumber",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/cucumber.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": false
+    }
+  },
+  {
+    "name": "Date",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/date.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": false,
+      "6": false,
+      "7": false,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Dragonfruit",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/dragonfruit.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": false,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": false,
+      "10": false,
+      "11": false
+    }
+  },
+  {
+    "name": "Durian",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/durian.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": false,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": false,
+      "10": false,
+      "11": false
+    }
+  },
+  {
+    "name": "Eggplant",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/eggplant.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": false,
+      "10": false,
+      "11": false
+    }
+  },
+  {
+    "name": "Fennel",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/fennel.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Fig",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/fig.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": false
+    }
+  },
+  {
+    "name": "Grapefruit",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/grapefruit.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": false,
+      "5": false,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Grapes",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/grapes.webp",
+    "months": {
+      "0": true,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Green Cabbage",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/green_cabbage.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": false,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Guava",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/guava.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Jicama",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/jicama.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": false,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": false,
+      "10": false,
+      "11": false
+    }
+  },
+  {
+    "name": "Kiwi",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/kiwi.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": false,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Lemon",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/lemon.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Lime",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/lime.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": false,
+      "5": false,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Mango",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/mango.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": false,
+      "9": false,
+      "10": false,
+      "11": false
+    }
+  },
+  {
+    "name": "Mangosteen",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/mangosteen.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": false,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": false,
+      "10": false,
+      "11": false
+    }
+  },
+  {
+    "name": "Melon",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/melon.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": false
+    }
+  },
+  {
+    "name": "Mushroom",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/mushroom.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Napa Cabbage",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/napa_cabbage.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": false,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Olive",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/olive.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Onion",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/onion.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Orange",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/orange.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Papaya",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/papaya.webp",
+    "months": {
+      "0": false,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": false
+    }
+  },
+  {
+    "name": "Parsley",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/parsley.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Peach",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/peach.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": false,
+      "10": false,
+      "11": false
+    }
+  },
+  {
+    "name": "Pear",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/pear.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": false,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": false
+    }
+  },
+  {
+    "name": "Peas",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/peas.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": false
+    }
+  },
+  {
+    "name": "Pepper",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/pepper.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Persimmon",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/persimmon.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": false,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Pineapple",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/pineapple.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": false,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": false,
+      "10": false,
+      "11": false
+    }
+  },
+  {
+    "name": "Plum",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/plum.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": false,
+      "10": false,
+      "11": false
+    }
+  },
+  {
+    "name": "Pomegranate",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/pomegranate.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": false,
+      "6": false,
+      "7": false,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Potato",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/potato.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Pumpkin",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/pumpkin.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": false,
+      "6": false,
+      "7": false,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": false
+    }
+  },
+  {
+    "name": "Radicchio",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/radicchio.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": false,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Radish",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/radish.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": false,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Raspberry",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/raspberry.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": false
+    }
+  },
+  {
+    "name": "Spinach",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/spinach.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Starfruit",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/starfruit.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": false,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": false,
+      "10": false,
+      "11": false
+    }
+  },
+  {
+    "name": "Strawberry",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/strawberry.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": false,
+      "9": false,
+      "10": false,
+      "11": false
+    }
+  },
+  {
+    "name": "Tangerine",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/tangerine.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": false,
+      "4": false,
+      "5": false,
+      "6": false,
+      "7": false,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Thyme",
+    "category": "other",
+    "description": "",
+    "imageUrl": "images/thyme.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Tomato",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/tomato.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Turnip",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/turnip.webp",
+    "months": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": false,
+      "5": false,
+      "6": false,
+      "7": false,
+      "8": false,
+      "9": false,
+      "10": true,
+      "11": true
+    }
+  },
+  {
+    "name": "Watermelon",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "images/watermelon.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": false
+    }
+  },
+  {
+    "name": "Zucchini",
+    "category": "vegetable",
+    "description": "",
+    "imageUrl": "images/zucchini.webp",
+    "months": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": false
+    }
+  }
+]

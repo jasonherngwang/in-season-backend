@@ -1,12 +1,9 @@
-# npm
 node_modules
+build
+requests
 package-lock.json
 *.log
 *.gz
-
 .DS_Store
-
 .env
-
 .vscode
-build

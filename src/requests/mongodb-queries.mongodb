@@ -2,11 +2,32 @@
 // Select the database to use.
 use('in-season');
 
+db.users.insertMany([
+  {
+    "name": "Apple",
+    "category": "fruit",
+    "description": "",
+    "imageUrl": "https://d1gd44u5i25a4k.cloudfront.net/base/apple.webp",
+    "months": {
+      "0": true,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "5": false,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true,
+      "11": true
+    }
+  }
+])
+
 // The drop() command destroys all data from a collection.
 // Make sure you run it against the correct database and collection.
-db.baskets.drop();
-db.foods.drop();
-db.users.drop();
+// db.users.drop();
 
 // Insert a few documents into the sales collection.
 // db.sales.insertMany([
