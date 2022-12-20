@@ -20,11 +20,11 @@ app.use(middleware.requestLogger);
 app.use(middleware.tokenExtractor);
 app.use(middleware.userExtractor);
 
-console.log('Connecting to', config.MONGODB_URI);
+console.log('Connecting to', config.MONGO_URI);
 
 mongoose.set('strictQuery', false);
 mongoose
-  .connect(config.MONGODB_URI ?? '')
+  .connect(config.MONGO_URI ?? '')
   .then(() => {
     logger.info('Connected to MongoDB');
   })

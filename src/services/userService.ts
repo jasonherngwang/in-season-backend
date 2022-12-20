@@ -1,8 +1,9 @@
 import bcrypt from 'bcrypt';
-import fs from 'fs';
 import { ValidationError } from '../utils/errors';
-import { NewUserEntry, NewFoodEntry } from '../types';
+import { NewUserEntry } from '../types';
 import { IUser, UserModel } from '../models/user';
+
+import seedData from '../data/seedData.json';
 
 const getUser = async (id: string) => {
   const user = await UserModel.findById(id);
@@ -29,9 +30,7 @@ const addUser = async (entry: NewUserEntry) => {
   const passwordHash = await bcrypt.hash(password, saltRounds);
 
   // Make a copy of the "core" foods for the user
-  const foods: NewFoodEntry[] = JSON.parse(
-    fs.readFileSync(`${__dirname}/../data/seedData.json`, 'utf-8'),
-  );
+  const foods = seedData;
 
   const newUser = new UserModel({
     username,
