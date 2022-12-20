@@ -1,6 +1,6 @@
-node_modules
-build
-requests
+node_modules/
+build/
+requests/
 package-lock.json
 *.log
 *.gz
